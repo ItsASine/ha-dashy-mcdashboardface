@@ -1,0 +1,16 @@
+name: Bug Report
+description: Report a dashboard issue or breakage
+labels: [bug]
+body:
+  - type: input
+    id: description
+    attributes:
+      label: What broke?
+      description: Describe what happened and what you expected.
+      placeholder: The room tile didn’t load temp…
+  - type: textarea
+    id: config
+    attributes:
+      label: Relevant dashboard config (optional)
+      placeholder: Paste your `home.yaml` snippet if helpful
+    optional: true

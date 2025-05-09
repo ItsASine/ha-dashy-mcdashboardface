@@ -1,0 +1,10 @@
+{
+  "name": "Dashy McDashboardface",
+  "content_in_root": true,
+  "filename": "home.yaml",
+  "render_readme": true,
+  "description": "A personalized, UX-first Home Assistant dashboard using Mushroom and Sections",
+  "domain": "dashymcdashboardface",
+  "type": "lovelace",
+  "documentation": "https://github.com/itsasine/ha-dashy-mcdashboardface"
+}
