@@ -1,0 +1,12 @@
+lovelace:
+  mode: yaml
+  resources:
+    - url: /hacsfiles/lovelace-auto-entities/auto-entities.js
+      type: module
+  dashboards:
+    dashy-mcdashboardface:
+      mode: yaml
+      title: Dashy McDashboardface
+      icon: mdi:view-dashboard
+      show_in_sidebar: true
+      filename: www/community/ha-dashy-mcdashboardface/home.yaml

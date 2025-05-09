@@ -25,18 +25,7 @@ This dashboard requires the following HACS Frontend integrations:
 3. Click Install
 
 ### 2. Configure Dashboard
-Add the following to your `configuration.yaml`:
-```yaml
-lovelace:
-  mode: yaml
-  dashboards:
-    dashy-mcdashboardface:
-      mode: yaml
-      title: Dashy McDashboardface
-      icon: mdi:view-dashboard
-      show_in_sidebar: true
-      filename: www/community/ha-dashy-mcdashboardface/home.yaml
-```
+Copy the contents of [example-configuration.yml](example-configuration.yml) into your `configuration.yaml`. This will set up the dashboard with the required resources and configuration.
 
 ### 3. Restart & Reload
 1. Restart Home Assistant
