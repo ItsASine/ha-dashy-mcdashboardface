@@ -1,2 +1,2 @@
-## v0.0.1
-- Initial project scaffolding
+## v0.0.2
+- Simplify the initial dashboard
