@@ -10,14 +10,46 @@ This is our personal Mushroom UI setup, built for a tablet-friendly, clean inter
 - Clean rounded-corner aesthetic via Mushroom cards
 - No third-party services, iframe nonsense, or abandoned frameworks
 
-> You can install this manually or as a custom HACS dashboard repo.
+## Prerequisites
 
----
+This dashboard requires the following HACS Frontend integrations:
+- [Mushroom Cards](https://github.com/piitaya/lovelace-mushroom)
+- [Auto-Entities](https://github.com/thomasloven/lovelace-auto-entities)
+- [Layout Card](https://github.com/thomasloven/lovelace-layout-card)
 
-### **Installing via HACS**
-1. Go to *HACS > Frontend > + > Custom Repository*
-2. Enter the repo URL and set category to **Lovelace**
-3. Once added, install and select as your dashboard source
+## Installation
+
+### 1. Install as HACS Repository
+1. Go to HACS > ⋮ > Custom repositories
+2. Add this repository URL with category "Dashboard"
+3. Click Install
+
+### 2. Configure Dashboard
+Add the following to your `configuration.yaml`:
+```yaml
+lovelace:
+  mode: yaml
+  dashboards:
+    dashy-mcdashboardface:
+      mode: yaml
+      title: Dashy McDashboardface
+      icon: mdi:view-dashboard
+      show_in_sidebar: true
+      filename: www/community/ha-dashy-mcdashboardface/home.yaml
+```
+
+### 3. Restart & Reload
+1. Restart Home Assistant
+2. Go to Configuration > Dashboards
+3. The dashboard should appear in your sidebar as "Dashy McDashboardface"
+
+## Troubleshooting
+
+If you see errors about missing custom cards:
+1. Ensure all prerequisite HACS Frontend integrations are installed
+2. Go to Configuration > Dashboards > Dashy McDashboardface
+3. Click ⋮ > Reload resources
+4. Refresh your browser
 
 ---
 
