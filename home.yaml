@@ -46,7 +46,7 @@ views:
                     green
                   {% endif %}
                 primary: Temperature
-                secondary: "{{ states(entity) }}°"
+                secondary: "{{ states(entity) }} °F"
                 layout: vertical
                 fill_container: true
               - type: custom:mushroom-entity-card
@@ -70,7 +70,7 @@ views:
                     green
                   {% endif %}
                 primary: VOC
-                secondary: "{{ states(entity) }}"
+                secondary: "{{ states(entity) }} ppb"
                 layout: vertical
                 fill_container: true
           - type: horizontal-stack
