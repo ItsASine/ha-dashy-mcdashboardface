@@ -5,14 +5,22 @@ views:
     type: sidebar
     badges: []
     cards:
-      - type: custom:mushroom-chips-card
-        chips:
-          - type: entity
+      - type: grid
+        columns: 2
+        square: false
+        cards:
+          - type: custom:mushroom-person-card
             entity: person.kayla
             name: Kayla
-          - type: entity
+            show_state: true
+            tap_action:
+              action: more-info
+          - type: custom:mushroom-person-card
             entity: person.eric
             name: Eric
+            show_state: true
+            tap_action:
+              action: more-info
       - type: custom:stack-in-card
         mode: vertical
         cards:
