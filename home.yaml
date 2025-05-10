@@ -34,74 +34,86 @@ views:
             title: Living Room
           - type: horizontal-stack
             cards:
-              - type: custom:mushroom-template-card
-                entity: sensor.living_room_temperature
-                icon: mdi:thermometer
-                icon_color: >
-                  {% if states(entity) | float > 80 %}
-                    red
-                  {% elif states(entity) | float > 74 %}
-                    yellow
-                  {% elif states(entity) | float > 66 %}
-                    green
-                  {% else %}
-                    blue
-                  {% endif %}
-                primary: Temperature
-                secondary: "{{ states(entity) }} °F"
-                layout: vertical
-                fill_container: true
-                tap_action:
-                  action: more-info
-              - type: custom:mushroom-template-card
-                entity: sensor.living_room_humidity
-                icon: mdi:water-percent
-                icon_color: >
-                  {% if states(entity) | float > 70 %}
-                    red
-                  {% elif states(entity) | float > 60 %}
-                    yellow
-                  {% elif states(entity) | float > 30 %}
-                    green
-                  {% elif states(entity) | float > 25 %}
-                    yellow
-                  {% else %}
-                    red
-                  {% endif %}
-                primary: Humidity
-                secondary: "{{ states(entity) }} %"
-                layout: vertical
-                fill_container: true
-                tap_action:
-                  action: more-info
-              - type: custom:mushroom-template-card
-                entity: sensor.living_room_voc
-                icon: mdi:check-circle
-                icon_color: >
-                  {% if states(entity) | float > 2000 %}
-                    red
-                  {% elif states(entity) | float > 250 %}
-                    yellow
-                  {% else %}
-                    green
-                  {% endif %}
-                primary: VOC
-                secondary: "{{ states(entity) }} ppb"
-                layout: vertical
-                fill_container: true
-                tap_action:
-                  action: more-info
-          - type: horizontal-stack
-            cards:
-              - type: custom:mushroom-light-card
-                entity: light.living_room_main
-                name: Light
-              - type: custom:mushroom-fan-card
-                entity: fan.living_room_ceiling
-                name: Fan
-              - type: custom:mushroom-entity-card
-                entity: switch.living_room_heater
-                name: Heater
+              - type: conditional
+                conditions:
+                  - entity: sensor.living_room_temperature
+                    state_not: unavailable
+                  - entity: sensor.living_room_temperature
+                    state_not: unknown
+                card:
+                  type: custom:mushroom-template-card
+                  entity: sensor.living_room_temperature
+                  icon: mdi:thermometer
+                  icon_color: >
+                    {% if states(entity) | float > 80 %}
+                      red
+                    {% elif states(entity) | float > 74 %}
+                      yellow
+                    {% elif states(entity) | float > 66 %}
+                      green
+                    {% else %}
+                      blue
+                    {% endif %}
+                  primary: Temperature
+                  secondary: "{{ states(entity) }} °F"
+                  layout: vertical
+                  fill_container: true
+                  tap_action:
+                    action: more-info
+
+              - type: conditional
+                conditions:
+                  - entity: sensor.living_room_humidity
+                    state_not: unavailable
+                  - entity: sensor.living_room_humidity
+                    state_not: unknown
+                card:
+                  type: custom:mushroom-template-card
+                  entity: sensor.living_room_humidity
+                  icon: mdi:water-percent
+                  icon_color: >
+                    {% if states(entity) | float > 70 %}
+                      red
+                    {% elif states(entity) | float > 60 %}
+                      yellow
+                    {% elif states(entity) | float > 30 %}
+                      green
+                    {% elif states(entity) | float > 25 %}
+                      yellow
+                    {% else %}
+                      red
+                    {% endif %}
+                  primary: Humidity
+                  secondary: "{{ states(entity) }} %"
+                  layout: vertical
+                  fill_container: true
+                  tap_action:
+                    action: more-info
+
+              - type: conditional
+                conditions:
+                  - entity: sensor.living_room_voc
+                    state_not: unavailable
+                  - entity: sensor.living_room_voc
+                    state_not: unknown
+                card:
+                  type: custom:mushroom-template-card
+                  entity: sensor.living_room_voc
+                  icon: mdi:check-circle
+                  icon_color: >
+                    {% if states(entity) | float > 2000 %}
+                      red
+                    {% elif states(entity) | float > 250 %}
+                      yellow
+                    {% else %}
+                      green
+                    {% endif %}
+                  primary: VOC
+                  secondary: "{{ states(entity) }} ppb"
+                  layout: vertical
+                  fill_container: true
+                  tap_action:
+                    action: more-info
       - type: custom:stack-in-card
         mode: vertical
         cards:
@@ -166,14 +178,6 @@ views:
                 fill_container: true
                 tap_action:
                   action: more-info
-          - type: horizontal-stack
-            cards:
-              - type: custom:mushroom-light-card
-                entity: light.dining_room_chandelier
-                name: Chandelier
-              - type: custom:mushroom-fan-card
-                entity: fan.dining_room_ceiling
-                name: Fan
       - type: custom:stack-in-card
         mode: vertical
         cards:
@@ -238,14 +242,6 @@ views:
                 fill_container: true
                 tap_action:
                   action: more-info
-          - type: horizontal-stack
-            cards:
-              - type: custom:mushroom-light-card
-                entity: light.bedroom_main
-                name: Light
-              - type: custom:mushroom-fan-card
-                entity: fan.bedroom_ceiling
-                name: Fan
       - type: custom:stack-in-card
         mode: vertical
         cards:
@@ -310,17 +306,6 @@ views:
                 fill_container: true
                 tap_action:
                   action: more-info
-          - type: horizontal-stack
-            cards:
-              - type: custom:mushroom-light-card
-                entity: light.kitchen_overhead
-                name: Light
-              - type: custom:mushroom-humidifier-card
-                entity: switch.kitchen_humidifier
-                name: Humidifier
-              - type: custom:mushroom-entity-card
-                entity: switch.cat_feeder
-                name: Feed Cat
       - type: custom:stack-in-card
         mode: vertical
         cards:
@@ -385,14 +370,6 @@ views:
                 fill_container: true
                 tap_action:
                   action: more-info
-          - type: horizontal-stack
-            cards:
-              - type: custom:mushroom-light-card
-                entity: light.bathroom_light
-                name: Light
-              - type: custom:mushroom-fan-card
-                entity: fan.bathroom_exhaust
-                name: Fan
       - type: custom:stack-in-card
         mode: vertical
         cards:
@@ -457,14 +434,6 @@ views:
                 fill_container: true
                 tap_action:
                   action: more-info
-          - type: horizontal-stack
-            cards:
-              - type: custom:mushroom-light-card
-                entity: light.bathroom2_light
-                name: Light
-              - type: custom:mushroom-fan-card
-                entity: fan.bathroom2_exhaust
-                name: Fan
       - type: custom:stack-in-card
         mode: vertical
         cards:
@@ -529,14 +498,6 @@ views:
                 fill_container: true
                 tap_action:
                   action: more-info
-          - type: horizontal-stack
-            cards:
-              - type: custom:mushroom-light-card
-                entity: light.kayla_office_desk
-                name: Light
-              - type: custom:mushroom-fan-card
-                entity: fan.kayla_office_fan
-                name: Fan
       - type: custom:stack-in-card
         mode: vertical
         cards:
@@ -601,29 +562,3 @@ views:
                 fill_container: true
                 tap_action:
                   action: more-info
-          - type: horizontal-stack
-            cards:
-              - type: custom:mushroom-light-card
-                entity: light.eric_office_desk
-                name: Light
-              - type: custom:mushroom-fan-card
-                entity: fan.eric_office_fan
-                name: Fan
-      - type: custom:stack-in-card
-        mode: vertical
-        cards:
-          - type: custom:mushroom-title-card
-            title: Global Controls
-          - type: horizontal-stack
-            cards:
-              - type: custom:mushroom-entity-card
-                entity: group.all_lights
-                name: Toggle All Lights
-              - type: custom:mushroom-entity-card
-                entity: group.all_lights
-                name: All Off
-                tap_action:
-                  action: call-service
-                  service: homeassistant.turn_off
-                  service_data:
-                    entity_id: group.all_lights
