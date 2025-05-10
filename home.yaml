@@ -3,24 +3,27 @@ views:
   - title: Home
     path: home
     type: sidebar
-    badges: []
+    badges: [ ]
     cards:
-      - type: custom:auto-entities
-        show_empty: true
-        card:
-          type: grid
-          columns: 2
-          square: false
-        card_param: cards
-        filter:
-          include:
-            - domain: person
-              options:
-                type: custom:mushroom-person-card
-                show_name: true
-                show_state: true
-                tap_action:
-                  action: more-info
+      - type: custom:stack-in-card
+        mode: vertical
+        cards:
+          - type: custom:auto-entities
+            show_empty: true
+            card:
+              type: grid
+              columns: 2
+              square: false
+            card_param: cards
+            filter:
+              include:
+                - domain: person
+                  options:
+                    type: custom:mushroom-person-card
+                    show_name: true
+                    show_state: true
+                    tap_action:
+                      action: more-info
       - type: custom:stack-in-card
         mode: vertical
         cards:
