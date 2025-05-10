@@ -91,11 +91,10 @@ views:
             title: Dining Room
           - type: horizontal-stack
             cards:
-              - type: custom:mushroom-entity-card
+              - type: custom:mushroom-template-card
                 entity: sensor.living_room_air_2_temperature
-                name: Temperature
                 icon: mdi:thermometer
-                icon_color: |
+                icon_color: >
                   {% if states(entity) | float > 80 %}
                     red
                   {% elif states(entity) | float > 74 %}
@@ -103,8 +102,8 @@ views:
                   {% else %}
                     green
                   {% endif %}
-                primary_info: name
-                secondary_info: state
+                primary: Temperature
+                secondary: "{{ states(entity) }} °F"
                 layout: vertical
                 fill_container: true
               - type: custom:mushroom-entity-card
@@ -115,11 +114,10 @@ views:
                 secondary_info: state
                 layout: vertical
                 fill_container: true
-              - type: custom:mushroom-entity-card
+              - type: custom:mushroom-template-card
                 entity: sensor.living_room_air_2_voc
-                name: VOC
                 icon: mdi:check-circle
-                icon_color: |
+                icon_color: >
                   {% if states(entity) | float > 500 %}
                     red
                   {% elif states(entity) | float > 250 %}
@@ -127,8 +125,8 @@ views:
                   {% else %}
                     green
                   {% endif %}
-                primary_info: name
-                secondary_info: state
+                primary: VOC
+                secondary: "{{ states(entity) }} ppb"
                 layout: vertical
                 fill_container: true
           - type: horizontal-stack
@@ -146,11 +144,10 @@ views:
             title: Bedroom
           - type: horizontal-stack
             cards:
-              - type: custom:mushroom-entity-card
+              - type: custom:mushroom-template-card
                 entity: sensor.bedroom_temperature
-                name: Temperature
                 icon: mdi:thermometer
-                icon_color: |
+                icon_color: >
                   {% if states(entity) | float > 80 %}
                     red
                   {% elif states(entity) | float > 74 %}
@@ -158,8 +155,8 @@ views:
                   {% else %}
                     green
                   {% endif %}
-                primary_info: name
-                secondary_info: state
+                primary: Temperature
+                secondary: "{{ states(entity) }} °F"
                 layout: vertical
                 fill_container: true
               - type: custom:mushroom-entity-card
@@ -170,11 +167,10 @@ views:
                 secondary_info: state
                 layout: vertical
                 fill_container: true
-              - type: custom:mushroom-entity-card
+              - type: custom:mushroom-template-card
                 entity: sensor.bedroom_voc
-                name: VOC
                 icon: mdi:check-circle
-                icon_color: |
+                icon_color: >
                   {% if states(entity) | float > 500 %}
                     red
                   {% elif states(entity) | float > 250 %}
@@ -182,8 +178,8 @@ views:
                   {% else %}
                     green
                   {% endif %}
-                primary_info: name
-                secondary_info: state
+                primary: VOC
+                secondary: "{{ states(entity) }} ppb"
                 layout: vertical
                 fill_container: true
           - type: horizontal-stack
@@ -201,11 +197,10 @@ views:
             title: Kitchen
           - type: horizontal-stack
             cards:
-              - type: custom:mushroom-entity-card
+              - type: custom:mushroom-template-card
                 entity: sensor.kitchen_temperature
-                name: Temperature
                 icon: mdi:thermometer
-                icon_color: |
+                icon_color: >
                   {% if states(entity) | float > 80 %}
                     red
                   {% elif states(entity) | float > 74 %}
@@ -213,8 +208,8 @@ views:
                   {% else %}
                     green
                   {% endif %}
-                primary_info: name
-                secondary_info: state
+                primary: Temperature
+                secondary: "{{ states(entity) }} °F"
                 layout: vertical
                 fill_container: true
               - type: custom:mushroom-entity-card
@@ -225,11 +220,10 @@ views:
                 secondary_info: state
                 layout: vertical
                 fill_container: true
-              - type: custom:mushroom-entity-card
+              - type: custom:mushroom-template-card
                 entity: sensor.kitchen_voc
-                name: VOC
                 icon: mdi:check-circle
-                icon_color: |
+                icon_color: >
                   {% if states(entity) | float > 500 %}
                     red
                   {% elif states(entity) | float > 250 %}
@@ -237,8 +231,8 @@ views:
                   {% else %}
                     green
                   {% endif %}
-                primary_info: name
-                secondary_info: state
+                primary: VOC
+                secondary: "{{ states(entity) }} ppb"
                 layout: vertical
                 fill_container: true
           - type: horizontal-stack
@@ -259,11 +253,10 @@ views:
             title: Bathroom
           - type: horizontal-stack
             cards:
-              - type: custom:mushroom-entity-card
+              - type: custom:mushroom-template-card
                 entity: sensor.bathroom_temperature
-                name: Temperature
                 icon: mdi:thermometer
-                icon_color: |
+                icon_color: >
                   {% if states(entity) | float > 80 %}
                     red
                   {% elif states(entity) | float > 74 %}
@@ -271,8 +264,8 @@ views:
                   {% else %}
                     green
                   {% endif %}
-                primary_info: name
-                secondary_info: state
+                primary: Temperature
+                secondary: "{{ states(entity) }} °F"
                 layout: vertical
                 fill_container: true
               - type: custom:mushroom-entity-card
@@ -283,11 +276,10 @@ views:
                 secondary_info: state
                 layout: vertical
                 fill_container: true
-              - type: custom:mushroom-entity-card
+              - type: custom:mushroom-template-card
                 entity: sensor.bathroom_voc
-                name: VOC
                 icon: mdi:check-circle
-                icon_color: |
+                icon_color: >
                   {% if states(entity) | float > 500 %}
                     red
                   {% elif states(entity) | float > 250 %}
@@ -295,8 +287,8 @@ views:
                   {% else %}
                     green
                   {% endif %}
-                primary_info: name
-                secondary_info: state
+                primary: VOC
+                secondary: "{{ states(entity) }} ppb"
                 layout: vertical
                 fill_container: true
           - type: horizontal-stack
@@ -314,11 +306,10 @@ views:
             title: Bathroom 2
           - type: horizontal-stack
             cards:
-              - type: custom:mushroom-entity-card
+              - type: custom:mushroom-template-card
                 entity: sensor.bedroom_air_2_temperature
-                name: Temperature
                 icon: mdi:thermometer
-                icon_color: |
+                icon_color: >
                   {% if states(entity) | float > 80 %}
                     red
                   {% elif states(entity) | float > 74 %}
@@ -326,8 +317,8 @@ views:
                   {% else %}
                     green
                   {% endif %}
-                primary_info: name
-                secondary_info: state
+                primary: Temperature
+                secondary: "{{ states(entity) }} °F"
                 layout: vertical
                 fill_container: true
               - type: custom:mushroom-entity-card
@@ -338,11 +329,10 @@ views:
                 secondary_info: state
                 layout: vertical
                 fill_container: true
-              - type: custom:mushroom-entity-card
+              - type: custom:mushroom-template-card
                 entity: sensor.bedroom_air_2_voc
-                name: VOC
                 icon: mdi:check-circle
-                icon_color: |
+                icon_color: >
                   {% if states(entity) | float > 500 %}
                     red
                   {% elif states(entity) | float > 250 %}
@@ -350,8 +340,8 @@ views:
                   {% else %}
                     green
                   {% endif %}
-                primary_info: name
-                secondary_info: state
+                primary: VOC
+                secondary: "{{ states(entity) }} ppb"
                 layout: vertical
                 fill_container: true
           - type: horizontal-stack
@@ -369,11 +359,10 @@ views:
             title: Kayla's Office
           - type: horizontal-stack
             cards:
-              - type: custom:mushroom-entity-card
+              - type: custom:mushroom-template-card
                 entity: sensor.kayla_office_air_temperature
-                name: Temperature
                 icon: mdi:thermometer
-                icon_color: |
+                icon_color: >
                   {% if states(entity) | float > 80 %}
                     red
                   {% elif states(entity) | float > 74 %}
@@ -381,8 +370,8 @@ views:
                   {% else %}
                     green
                   {% endif %}
-                primary_info: name
-                secondary_info: state
+                primary: Temperature
+                secondary: "{{ states(entity) }} °F"
                 layout: vertical
                 fill_container: true
               - type: custom:mushroom-entity-card
@@ -393,11 +382,10 @@ views:
                 secondary_info: state
                 layout: vertical
                 fill_container: true
-              - type: custom:mushroom-entity-card
+              - type: custom:mushroom-template-card
                 entity: sensor.kayla_office_air_vocs
-                name: VOC
                 icon: mdi:check-circle
-                icon_color: |
+                icon_color: >
                   {% if states(entity) | float > 500 %}
                     red
                   {% elif states(entity) | float > 250 %}
@@ -405,8 +393,8 @@ views:
                   {% else %}
                     green
                   {% endif %}
-                primary_info: name
-                secondary_info: state
+                primary: VOC
+                secondary: "{{ states(entity) }} ppb"
                 layout: vertical
                 fill_container: true
           - type: horizontal-stack
@@ -424,11 +412,10 @@ views:
             title: Eric's Office
           - type: horizontal-stack
             cards:
-              - type: custom:mushroom-entity-card
+              - type: custom:mushroom-template-card
                 entity: sensor.eric_office_air_temperature
-                name: Temperature
                 icon: mdi:thermometer
-                icon_color: |
+                icon_color: >
                   {% if states(entity) | float > 80 %}
                     red
                   {% elif states(entity) | float > 74 %}
@@ -436,8 +423,8 @@ views:
                   {% else %}
                     green
                   {% endif %}
-                primary_info: name
-                secondary_info: state
+                primary: Temperature
+                secondary: "{{ states(entity) }} °F"
                 layout: vertical
                 fill_container: true
               - type: custom:mushroom-entity-card
@@ -448,11 +435,10 @@ views:
                 secondary_info: state
                 layout: vertical
                 fill_container: true
-              - type: custom:mushroom-entity-card
+              - type: custom:mushroom-template-card
                 entity: sensor.eric_office_air_vocs
-                name: VOC
                 icon: mdi:check-circle
-                icon_color: |
+                icon_color: >
                   {% if states(entity) | float > 500 %}
                     red
                   {% elif states(entity) | float > 250 %}
@@ -460,8 +446,8 @@ views:
                   {% else %}
                     green
                   {% endif %}
-                primary_info: name
-                secondary_info: state
+                primary: VOC
+                secondary: "{{ states(entity) }} ppb"
                 layout: vertical
                 fill_container: true
           - type: horizontal-stack
