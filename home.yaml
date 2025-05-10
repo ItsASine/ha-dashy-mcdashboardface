@@ -53,13 +53,23 @@ views:
                 fill_container: true
                 tap_action:
                   action: more-info
-              - type: custom:mushroom-entity-card
+              - type: custom:mushroom-template-card
                 entity: sensor.living_room_humidity
-                name: Humidity
                 icon: mdi:water-percent
-                icon_color: blue
-                primary_info: name
-                secondary_info: state
+                icon_color: >
+                  {% if states(entity) | float > 70 %}
+                    red
+                  {% elif states(entity) | float > 60 %}
+                    yellow
+                  {% elif states(entity) | float > 30 %}
+                    green
+                  {% elif states(entity) | float > 25 %}
+                    yellow
+                  {% else %}
+                    red
+                  {% endif %}
+                primary: Humidity
+                secondary: "{{ states(entity) }} %"
                 layout: vertical
                 fill_container: true
                 tap_action:
@@ -118,12 +128,23 @@ views:
                 fill_container: true
                 tap_action:
                   action: more-info
-              - type: custom:mushroom-entity-card
+              - type: custom:mushroom-template-card
                 entity: sensor.living_room_air_2_humidity
-                name: Humidity
                 icon: mdi:water-percent
-                primary_info: name
-                secondary_info: state
+                icon_color: >
+                  {% if states(entity) | float > 70 %}
+                    red
+                  {% elif states(entity) | float > 60 %}
+                    yellow
+                  {% elif states(entity) | float > 30 %}
+                    green
+                  {% elif states(entity) | float > 25 %}
+                    yellow
+                  {% else %}
+                    red
+                  {% endif %}
+                primary: Humidity
+                secondary: "{{ states(entity) }} %"
                 layout: vertical
                 fill_container: true
                 tap_action:
@@ -179,12 +200,23 @@ views:
                 fill_container: true
                 tap_action:
                   action: more-info
-              - type: custom:mushroom-entity-card
+              - type: custom:mushroom-template-card
                 entity: sensor.bedroom_humidity
-                name: Humidity
                 icon: mdi:water-percent
-                primary_info: name
-                secondary_info: state
+                icon_color: >
+                  {% if states(entity) | float > 70 %}
+                    red
+                  {% elif states(entity) | float > 60 %}
+                    yellow
+                  {% elif states(entity) | float > 30 %}
+                    green
+                  {% elif states(entity) | float > 25 %}
+                    yellow
+                  {% else %}
+                    red
+                  {% endif %}
+                primary: Humidity
+                secondary: "{{ states(entity) }} %"
                 layout: vertical
                 fill_container: true
                 tap_action:
@@ -240,12 +272,23 @@ views:
                 fill_container: true
                 tap_action:
                   action: more-info
-              - type: custom:mushroom-entity-card
+              - type: custom:mushroom-template-card
                 entity: sensor.kitchen_humidity
-                name: Humidity
                 icon: mdi:water-percent
-                primary_info: name
-                secondary_info: state
+                icon_color: >
+                  {% if states(entity) | float > 70 %}
+                    red
+                  {% elif states(entity) | float > 60 %}
+                    yellow
+                  {% elif states(entity) | float > 30 %}
+                    green
+                  {% elif states(entity) | float > 25 %}
+                    yellow
+                  {% else %}
+                    red
+                  {% endif %}
+                primary: Humidity
+                secondary: "{{ states(entity) }} %"
                 layout: vertical
                 fill_container: true
                 tap_action:
@@ -304,12 +347,23 @@ views:
                 fill_container: true
                 tap_action:
                   action: more-info
-              - type: custom:mushroom-entity-card
+              - type: custom:mushroom-template-card
                 entity: sensor.bathroom_humidity
-                name: Humidity
                 icon: mdi:water-percent
-                primary_info: name
-                secondary_info: state
+                icon_color: >
+                  {% if states(entity) | float > 70 %}
+                    red
+                  {% elif states(entity) | float > 60 %}
+                    yellow
+                  {% elif states(entity) | float > 30 %}
+                    green
+                  {% elif states(entity) | float > 25 %}
+                    yellow
+                  {% else %}
+                    red
+                  {% endif %}
+                primary: Humidity
+                secondary: "{{ states(entity) }} %"
                 layout: vertical
                 fill_container: true
                 tap_action:
@@ -365,12 +419,23 @@ views:
                 fill_container: true
                 tap_action:
                   action: more-info
-              - type: custom:mushroom-entity-card
+              - type: custom:mushroom-template-card
                 entity: sensor.bedroom_air_2_humidity
-                name: Humidity
                 icon: mdi:water-percent
-                primary_info: name
-                secondary_info: state
+                icon_color: >
+                  {% if states(entity) | float > 70 %}
+                    red
+                  {% elif states(entity) | float > 60 %}
+                    yellow
+                  {% elif states(entity) | float > 30 %}
+                    green
+                  {% elif states(entity) | float > 25 %}
+                    yellow
+                  {% else %}
+                    red
+                  {% endif %}
+                primary: Humidity
+                secondary: "{{ states(entity) }} %"
                 layout: vertical
                 fill_container: true
                 tap_action:
@@ -426,12 +491,23 @@ views:
                 fill_container: true
                 tap_action:
                   action: more-info
-              - type: custom:mushroom-entity-card
+              - type: custom:mushroom-template-card
                 entity: sensor.kayla_office_air_humidity
-                name: Humidity
                 icon: mdi:water-percent
-                primary_info: name
-                secondary_info: state
+                icon_color: >
+                  {% if states(entity) | float > 70 %}
+                    red
+                  {% elif states(entity) | float > 60 %}
+                    yellow
+                  {% elif states(entity) | float > 30 %}
+                    green
+                  {% elif states(entity) | float > 25 %}
+                    yellow
+                  {% else %}
+                    red
+                  {% endif %}
+                primary: Humidity
+                secondary: "{{ states(entity) }} %"
                 layout: vertical
                 fill_container: true
                 tap_action:
@@ -487,12 +563,23 @@ views:
                 fill_container: true
                 tap_action:
                   action: more-info
-              - type: custom:mushroom-entity-card
+              - type: custom:mushroom-template-card
                 entity: sensor.eric_office_air_humidity
-                name: Humidity
                 icon: mdi:water-percent
-                primary_info: name
-                secondary_info: state
+                icon_color: >
+                  {% if states(entity) | float > 70 %}
+                    red
+                  {% elif states(entity) | float > 60 %}
+                    yellow
+                  {% elif states(entity) | float > 30 %}
+                    green
+                  {% elif states(entity) | float > 25 %}
+                    yellow
+                  {% else %}
+                    red
+                  {% endif %}
+                primary: Humidity
+                secondary: "{{ states(entity) }} %"
                 layout: vertical
                 fill_container: true
                 tap_action:
