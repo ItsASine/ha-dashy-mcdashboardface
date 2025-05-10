@@ -32,8 +32,6 @@ views:
                 entity: sensor.living_room_temperature
                 name: Temperature
                 icon: mdi:thermometer
-                tap_action:
-                  action: none
                 severity:
                   green: 0
                   yellow: 74
@@ -42,14 +40,10 @@ views:
                 entity: sensor.living_room_humidity
                 name: Humidity
                 icon: mdi:water-percent
-                tap_action:
-                  action: none
               - type: custom:mushroom-number-card
                 entity: sensor.living_room_voc
                 name: VOC
                 icon: mdi:check-circle
-                tap_action:
-                  action: none
                 severity:
                   green: 0
                   yellow: 250
@@ -76,8 +70,6 @@ views:
                 entity: sensor.living_room_air_2_temperature
                 name: Temperature
                 icon: mdi:thermometer
-                tap_action:
-                  action: none
                 severity:
                   green: 0
                   yellow: 74
@@ -86,14 +78,10 @@ views:
                 entity: sensor.living_room_air_2_humidity
                 name: Humidity
                 icon: mdi:water-percent
-                tap_action:
-                  action: none
               - type: custom:mushroom-number-card
                 entity: sensor.living_room_air_2_voc
                 name: VOC
                 icon: mdi:check-circle
-                tap_action:
-                  action: none
                 severity:
                   green: 0
                   yellow: 250
@@ -117,8 +105,6 @@ views:
                 entity: sensor.bedroom_temperature
                 name: Temperature
                 icon: mdi:thermometer
-                tap_action:
-                  action: none
                 severity:
                   green: 0
                   yellow: 74
@@ -127,14 +113,10 @@ views:
                 entity: sensor.bedroom_humidity
                 name: Humidity
                 icon: mdi:water-percent
-                tap_action:
-                  action: none
               - type: custom:mushroom-number-card
                 entity: sensor.bedroom_voc
                 name: VOC
                 icon: mdi:check-circle
-                tap_action:
-                  action: none
                 severity:
                   green: 0
                   yellow: 250
@@ -158,8 +140,6 @@ views:
                 entity: sensor.kitchen_temperature
                 name: Temperature
                 icon: mdi:thermometer
-                tap_action:
-                  action: none
                 severity:
                   green: 0
                   yellow: 74
@@ -168,14 +148,10 @@ views:
                 entity: sensor.kitchen_humidity
                 name: Humidity
                 icon: mdi:water-percent
-                tap_action:
-                  action: none
               - type: custom:mushroom-number-card
                 entity: sensor.kitchen_voc
                 name: VOC
                 icon: mdi:check-circle
-                tap_action:
-                  action: none
                 severity:
                   green: 0
                   yellow: 250
@@ -202,8 +178,6 @@ views:
                 entity: sensor.bathroom_temperature
                 name: Temperature
                 icon: mdi:thermometer
-                tap_action:
-                  action: none
                 severity:
                   green: 0
                   yellow: 74
@@ -212,14 +186,10 @@ views:
                 entity: sensor.bathroom_humidity
                 name: Humidity
                 icon: mdi:water-percent
-                tap_action:
-                  action: none
               - type: custom:mushroom-number-card
                 entity: sensor.bathroom_voc
                 name: VOC
                 icon: mdi:check-circle
-                tap_action:
-                  action: none
                 severity:
                   green: 0
                   yellow: 250
@@ -243,8 +213,6 @@ views:
                 entity: sensor.bedroom_air_2_temperature
                 name: Temperature
                 icon: mdi:thermometer
-                tap_action:
-                  action: none
                 severity:
                   green: 0
                   yellow: 74
@@ -253,14 +221,10 @@ views:
                 entity: sensor.bedroom_air_2_humidity
                 name: Humidity
                 icon: mdi:water-percent
-                tap_action:
-                  action: none
               - type: custom:mushroom-number-card
                 entity: sensor.bedroom_air_2_voc
                 name: VOC
                 icon: mdi:check-circle
-                tap_action:
-                  action: none
                 severity:
                   green: 0
                   yellow: 250
@@ -284,8 +248,6 @@ views:
                 entity: sensor.kayla_office_air_temperature
                 name: Temperature
                 icon: mdi:thermometer
-                tap_action:
-                  action: none
                 severity:
                   green: 0
                   yellow: 74
@@ -294,14 +256,10 @@ views:
                 entity: sensor.kayla_office_air_humidity
                 name: Humidity
                 icon: mdi:water-percent
-                tap_action:
-                  action: none
               - type: custom:mushroom-number-card
                 entity: sensor.kayla_office_air_vocs
                 name: VOC
                 icon: mdi:check-circle
-                tap_action:
-                  action: none
                 severity:
                   green: 0
                   yellow: 250
@@ -325,8 +283,6 @@ views:
                 entity: sensor.eric_office_air_temperature
                 name: Temperature
                 icon: mdi:thermometer
-                tap_action:
-                  action: none
                 severity:
                   green: 0
                   yellow: 74
@@ -335,14 +291,10 @@ views:
                 entity: sensor.eric_office_air_humidity
                 name: Humidity
                 icon: mdi:water-percent
-                tap_action:
-                  action: none
               - type: custom:mushroom-number-card
                 entity: sensor.eric_office_air_vocs
                 name: VOC
                 icon: mdi:check-circle
-                tap_action:
-                  action: none
                 severity:
                   green: 0
                   yellow: 250
