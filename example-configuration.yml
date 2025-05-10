@@ -7,6 +7,8 @@ lovelace:
       type: module
     - url: /hacsfiles/stack-in-card/stack-in-card.js
       type: module
+    - url: /hacsfiles/lovelace-card-mod/card-mod.js
+      type: module
   dashboards:
     dashy-mcdashboardface:
       mode: yaml
