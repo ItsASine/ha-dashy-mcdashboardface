@@ -1,25 +1,367 @@
-title: Home
+title: Home Dashboard
 views:
-  - title: Overview
+  - title: Home
     path: home
     type: sidebar
+    badges: []
     cards:
-      - type: custom:auto-entities
-        columns: 4
-        square: false
-        card_param: cards
-        filter:
-          include:
-            - domain: person
-        sort:
-          method: friendly_name
-        template: >-
-          {{
-            {
-              "type": "custom:mushroom-person-card",
-              "entity": entity,
-              "layout": "vertical",
-              "primary_info": "name",
-              "secondary_info": "state"
-            }
-          }}
+      - type: custom:mushroom-chips-card
+        chips:
+          - type: entity
+            entity: person.kayla
+            name: Kayla
+          - type: entity
+            entity: person.eric
+            name: Eric
+      - type: custom:stack-in-card
+        mode: vertical
+        cards:
+          - type: markdown
+            content: '## Living Room'
+          - type: horizontal-stack
+            cards:
+              - type: custom:mushroom-number-card
+                entity: sensor.living_room_temperature
+                name: Temperature
+                icon: mdi:thermometer
+                tap_action:
+                  action: none
+                severity:
+                  green: 0
+                  yellow: 74
+                  red: 80
+              - type: custom:mushroom-number-card
+                entity: sensor.living_room_humidity
+                name: Humidity
+                icon: mdi:water-percent
+                tap_action:
+                  action: none
+              - type: custom:mushroom-number-card
+                entity: sensor.living_room_voc
+                name: VOC
+                icon: mdi:check-circle
+                tap_action:
+                  action: none
+                severity:
+                  green: 0
+                  yellow: 250
+                  red: 500
+          - type: horizontal-stack
+            cards:
+              - type: custom:mushroom-light-card
+                entity: light.living_room_main
+                name: Light
+              - type: custom:mushroom-fan-card
+                entity: fan.living_room_ceiling
+                name: Fan
+              - type: custom:mushroom-entity-card
+                entity: switch.living_room_heater
+                name: Heater
+      - type: custom:stack-in-card
+        mode: vertical
+        cards:
+          - type: markdown
+            content: '## Dining Room'
+          - type: horizontal-stack
+            cards:
+              - type: custom:mushroom-number-card
+                entity: sensor.living_room_air_2_temperature
+                name: Temperature
+                icon: mdi:thermometer
+                tap_action:
+                  action: none
+                severity:
+                  green: 0
+                  yellow: 74
+                  red: 80
+              - type: custom:mushroom-number-card
+                entity: sensor.living_room_air_2_humidity
+                name: Humidity
+                icon: mdi:water-percent
+                tap_action:
+                  action: none
+              - type: custom:mushroom-number-card
+                entity: sensor.living_room_air_2_voc
+                name: VOC
+                icon: mdi:check-circle
+                tap_action:
+                  action: none
+                severity:
+                  green: 0
+                  yellow: 250
+                  red: 500
+          - type: horizontal-stack
+            cards:
+              - type: custom:mushroom-light-card
+                entity: light.dining_room_chandelier
+                name: Chandelier
+              - type: custom:mushroom-fan-card
+                entity: fan.dining_room_ceiling
+                name: Fan
+      - type: custom:stack-in-card
+        mode: vertical
+        cards:
+          - type: markdown
+            content: '## Bedroom'
+          - type: horizontal-stack
+            cards:
+              - type: custom:mushroom-number-card
+                entity: sensor.bedroom_temperature
+                name: Temperature
+                icon: mdi:thermometer
+                tap_action:
+                  action: none
+                severity:
+                  green: 0
+                  yellow: 74
+                  red: 80
+              - type: custom:mushroom-number-card
+                entity: sensor.bedroom_humidity
+                name: Humidity
+                icon: mdi:water-percent
+                tap_action:
+                  action: none
+              - type: custom:mushroom-number-card
+                entity: sensor.bedroom_voc
+                name: VOC
+                icon: mdi:check-circle
+                tap_action:
+                  action: none
+                severity:
+                  green: 0
+                  yellow: 250
+                  red: 500
+          - type: horizontal-stack
+            cards:
+              - type: custom:mushroom-light-card
+                entity: light.bedroom_main
+                name: Light
+              - type: custom:mushroom-fan-card
+                entity: fan.bedroom_ceiling
+                name: Fan
+      - type: custom:stack-in-card
+        mode: vertical
+        cards:
+          - type: markdown
+            content: '## Kitchen'
+          - type: horizontal-stack
+            cards:
+              - type: custom:mushroom-number-card
+                entity: sensor.kitchen_temperature
+                name: Temperature
+                icon: mdi:thermometer
+                tap_action:
+                  action: none
+                severity:
+                  green: 0
+                  yellow: 74
+                  red: 80
+              - type: custom:mushroom-number-card
+                entity: sensor.kitchen_humidity
+                name: Humidity
+                icon: mdi:water-percent
+                tap_action:
+                  action: none
+              - type: custom:mushroom-number-card
+                entity: sensor.kitchen_voc
+                name: VOC
+                icon: mdi:check-circle
+                tap_action:
+                  action: none
+                severity:
+                  green: 0
+                  yellow: 250
+                  red: 500
+          - type: horizontal-stack
+            cards:
+              - type: custom:mushroom-light-card
+                entity: light.kitchen_overhead
+                name: Light
+              - type: custom:mushroom-humidifier-card
+                entity: switch.kitchen_humidifier
+                name: Humidifier
+              - type: custom:mushroom-entity-card
+                entity: switch.cat_feeder
+                name: Feed Cat
+      - type: custom:stack-in-card
+        mode: vertical
+        cards:
+          - type: markdown
+            content: '## Bathroom'
+          - type: horizontal-stack
+            cards:
+              - type: custom:mushroom-number-card
+                entity: sensor.bathroom_temperature
+                name: Temperature
+                icon: mdi:thermometer
+                tap_action:
+                  action: none
+                severity:
+                  green: 0
+                  yellow: 74
+                  red: 80
+              - type: custom:mushroom-number-card
+                entity: sensor.bathroom_humidity
+                name: Humidity
+                icon: mdi:water-percent
+                tap_action:
+                  action: none
+              - type: custom:mushroom-number-card
+                entity: sensor.bathroom_voc
+                name: VOC
+                icon: mdi:check-circle
+                tap_action:
+                  action: none
+                severity:
+                  green: 0
+                  yellow: 250
+                  red: 500
+          - type: horizontal-stack
+            cards:
+              - type: custom:mushroom-light-card
+                entity: light.bathroom_light
+                name: Light
+              - type: custom:mushroom-fan-card
+                entity: fan.bathroom_exhaust
+                name: Fan
+      - type: custom:stack-in-card
+        mode: vertical
+        cards:
+          - type: markdown
+            content: '## Bathroom 2'
+          - type: horizontal-stack
+            cards:
+              - type: custom:mushroom-number-card
+                entity: sensor.bedroom_air_2_temperature
+                name: Temperature
+                icon: mdi:thermometer
+                tap_action:
+                  action: none
+                severity:
+                  green: 0
+                  yellow: 74
+                  red: 80
+              - type: custom:mushroom-number-card
+                entity: sensor.bedroom_air_2_humidity
+                name: Humidity
+                icon: mdi:water-percent
+                tap_action:
+                  action: none
+              - type: custom:mushroom-number-card
+                entity: sensor.bedroom_air_2_voc
+                name: VOC
+                icon: mdi:check-circle
+                tap_action:
+                  action: none
+                severity:
+                  green: 0
+                  yellow: 250
+                  red: 500
+          - type: horizontal-stack
+            cards:
+              - type: custom:mushroom-light-card
+                entity: light.bathroom2_light
+                name: Light
+              - type: custom:mushroom-fan-card
+                entity: fan.bathroom2_exhaust
+                name: Fan
+      - type: custom:stack-in-card
+        mode: vertical
+        cards:
+          - type: markdown
+            content: '## Kayla''s Office'
+          - type: horizontal-stack
+            cards:
+              - type: custom:mushroom-number-card
+                entity: sensor.kayla_office_air_temperature
+                name: Temperature
+                icon: mdi:thermometer
+                tap_action:
+                  action: none
+                severity:
+                  green: 0
+                  yellow: 74
+                  red: 80
+              - type: custom:mushroom-number-card
+                entity: sensor.kayla_office_air_humidity
+                name: Humidity
+                icon: mdi:water-percent
+                tap_action:
+                  action: none
+              - type: custom:mushroom-number-card
+                entity: sensor.kayla_office_air_vocs
+                name: VOC
+                icon: mdi:check-circle
+                tap_action:
+                  action: none
+                severity:
+                  green: 0
+                  yellow: 250
+                  red: 500
+          - type: horizontal-stack
+            cards:
+              - type: custom:mushroom-light-card
+                entity: light.kayla_office_desk
+                name: Light
+              - type: custom:mushroom-fan-card
+                entity: fan.kayla_office_fan
+                name: Fan
+      - type: custom:stack-in-card
+        mode: vertical
+        cards:
+          - type: markdown
+            content: '## Eric''s Office'
+          - type: horizontal-stack
+            cards:
+              - type: custom:mushroom-number-card
+                entity: sensor.eric_office_air_temperature
+                name: Temperature
+                icon: mdi:thermometer
+                tap_action:
+                  action: none
+                severity:
+                  green: 0
+                  yellow: 74
+                  red: 80
+              - type: custom:mushroom-number-card
+                entity: sensor.eric_office_air_humidity
+                name: Humidity
+                icon: mdi:water-percent
+                tap_action:
+                  action: none
+              - type: custom:mushroom-number-card
+                entity: sensor.eric_office_air_vocs
+                name: VOC
+                icon: mdi:check-circle
+                tap_action:
+                  action: none
+                severity:
+                  green: 0
+                  yellow: 250
+                  red: 500
+          - type: horizontal-stack
+            cards:
+              - type: custom:mushroom-light-card
+                entity: light.eric_office_desk
+                name: Light
+              - type: custom:mushroom-fan-card
+                entity: fan.eric_office_fan
+                name: Fan
+      - type: custom:stack-in-card
+        mode: vertical
+        cards:
+          - type: markdown
+            content: '## Global Controls'
+          - type: horizontal-stack
+            cards:
+              - type: custom:mushroom-entity-card
+                entity: group.all_lights
+                name: Toggle All Lights
+              - type: custom:mushroom-entity-card
+                entity: group.all_lights
+                name: All Off
+                tap_action:
+                  action: call-service
+                  service: homeassistant.turn_off
+                  service_data:
+                    entity_id: group.all_lights
