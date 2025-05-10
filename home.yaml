@@ -20,15 +20,18 @@ views:
                 - domain: person
                   options:
                     type: custom:mushroom-person-card
-                    show_name: true
-                    show_state: true
+                    layout: horizontal
+                    fill_container: true
+                    primary_info: name
+                    secondary_info: state
+                    icon_type: entity-picture
                     tap_action:
                       action: more-info
       - type: custom:stack-in-card
         mode: vertical
         cards:
-          - type: markdown
-            content: '## Living Room'
+          - type: custom:mushroom-title-card
+            title: Living Room
           - type: horizontal-stack
             cards:
               - type: custom:mushroom-number-card
@@ -65,8 +68,8 @@ views:
       - type: custom:stack-in-card
         mode: vertical
         cards:
-          - type: markdown
-            content: '## Dining Room'
+          - type: custom:mushroom-title-card
+            title: Dining Room
           - type: horizontal-stack
             cards:
               - type: custom:mushroom-number-card
@@ -100,8 +103,8 @@ views:
       - type: custom:stack-in-card
         mode: vertical
         cards:
-          - type: markdown
-            content: '## Bedroom'
+          - type: custom:mushroom-title-card
+            title: Bedroom
           - type: horizontal-stack
             cards:
               - type: custom:mushroom-number-card
@@ -135,8 +138,8 @@ views:
       - type: custom:stack-in-card
         mode: vertical
         cards:
-          - type: markdown
-            content: '## Kitchen'
+          - type: custom:mushroom-title-card
+            title: Kitchen
           - type: horizontal-stack
             cards:
               - type: custom:mushroom-number-card
@@ -173,8 +176,8 @@ views:
       - type: custom:stack-in-card
         mode: vertical
         cards:
-          - type: markdown
-            content: '## Bathroom'
+          - type: custom:mushroom-title-card
+            title: Bathroom
           - type: horizontal-stack
             cards:
               - type: custom:mushroom-number-card
@@ -208,8 +211,8 @@ views:
       - type: custom:stack-in-card
         mode: vertical
         cards:
-          - type: markdown
-            content: '## Bathroom 2'
+          - type: custom:mushroom-title-card
+            title: Bathroom 2
           - type: horizontal-stack
             cards:
               - type: custom:mushroom-number-card
@@ -243,8 +246,8 @@ views:
       - type: custom:stack-in-card
         mode: vertical
         cards:
-          - type: markdown
-            content: '## Kayla''s Office'
+          - type: custom:mushroom-title-card
+            title: Kayla's Office
           - type: horizontal-stack
             cards:
               - type: custom:mushroom-number-card
@@ -278,8 +281,8 @@ views:
       - type: custom:stack-in-card
         mode: vertical
         cards:
-          - type: markdown
-            content: '## Eric''s Office'
+          - type: custom:mushroom-title-card
+            title: Eric's Office
           - type: horizontal-stack
             cards:
               - type: custom:mushroom-number-card
@@ -313,8 +316,8 @@ views:
       - type: custom:stack-in-card
         mode: vertical
         cards:
-          - type: markdown
-            content: '## Global Controls'
+          - type: custom:mushroom-title-card
+            title: Global Controls
           - type: horizontal-stack
             cards:
               - type: custom:mushroom-entity-card
