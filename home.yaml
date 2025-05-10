@@ -27,6 +27,7 @@ views:
                     icon_type: entity-picture
                     tap_action:
                       action: more-info
+
       - type: custom:stack-in-card
         mode: vertical
         cards:
@@ -60,6 +61,11 @@ views:
                   fill_container: true
                   tap_action:
                     action: more-info
+                  card_mod:
+                    style: |
+                      ha-card {
+                        border: none;
+                      }
 
               - type: conditional
                 conditions:
@@ -89,6 +95,11 @@ views:
                   fill_container: true
                   tap_action:
                     action: more-info
+                  card_mod:
+                    style: |
+                      ha-card {
+                        border: none;
+                      }
 
               - type: conditional
                 conditions:
@@ -114,6 +125,12 @@ views:
                   fill_container: true
                   tap_action:
                     action: more-info
+                  card_mod:
+                    style: |
+                      ha-card {
+                        border: none;
+                      }
+
       - type: custom:stack-in-card
         mode: vertical
         cards:
@@ -147,6 +164,12 @@ views:
                   fill_container: true
                   tap_action:
                     action: more-info
+                  card_mod:
+                    style: |
+                      ha-card {
+                        border: none;
+                      }
+
               - type: conditional
                 conditions:
                   - entity: sensor.living_room_air_2_humidity
@@ -175,6 +198,12 @@ views:
                   fill_container: true
                   tap_action:
                     action: more-info
+                  card_mod:
+                    style: |
+                      ha-card {
+                        border: none;
+                      }
+
               - type: conditional
                 conditions:
                   - entity: sensor.living_room_air_2_voc
@@ -199,6 +228,12 @@ views:
                   fill_container: true
                   tap_action:
                     action: more-info
+                  card_mod:
+                    style: |
+                      ha-card {
+                        border: none;
+                      }
+
       - type: custom:stack-in-card
         mode: vertical
         cards:
@@ -232,6 +267,12 @@ views:
                   fill_container: true
                   tap_action:
                     action: more-info
+                  card_mod:
+                    style: |
+                      ha-card {
+                        border: none;
+                      }
+
               - type: conditional
                 conditions:
                   - entity: sensor.bedroom_humidity
@@ -260,6 +301,12 @@ views:
                   fill_container: true
                   tap_action:
                     action: more-info
+                  card_mod:
+                    style: |
+                      ha-card {
+                        border: none;
+                      }
+
               - type: conditional
                 conditions:
                   - entity: sensor.bedroom_voc
@@ -284,6 +331,12 @@ views:
                   fill_container: true
                   tap_action:
                     action: more-info
+                  card_mod:
+                    style: |
+                      ha-card {
+                        border: none;
+                      }
+
       - type: custom:stack-in-card
         mode: vertical
         cards:
@@ -317,6 +370,12 @@ views:
                   fill_container: true
                   tap_action:
                     action: more-info
+                  card_mod:
+                    style: |
+                      ha-card {
+                        border: none;
+                      }
+
               - type: conditional
                 conditions:
                   - entity: sensor.kitchen_humidity
@@ -345,6 +404,12 @@ views:
                   fill_container: true
                   tap_action:
                     action: more-info
+                  card_mod:
+                    style: |
+                      ha-card {
+                        border: none;
+                      }
+
               - type: conditional
                 conditions:
                   - entity: sensor.kitchen_voc
@@ -369,6 +434,12 @@ views:
                   fill_container: true
                   tap_action:
                     action: more-info
+                  card_mod:
+                    style: |
+                      ha-card {
+                        border: none;
+                      }
+
       - type: custom:stack-in-card
         mode: vertical
         cards:
@@ -402,6 +473,12 @@ views:
                   fill_container: true
                   tap_action:
                     action: more-info
+                  card_mod:
+                    style: |
+                      ha-card {
+                        border: none;
+                      }
+
               - type: conditional
                 conditions:
                   - entity: sensor.bathroom_humidity
@@ -430,6 +507,12 @@ views:
                   fill_container: true
                   tap_action:
                     action: more-info
+                  card_mod:
+                    style: |
+                      ha-card {
+                        border: none;
+                      }
+
               - type: conditional
                 conditions:
                   - entity: sensor.bathroom_voc
@@ -454,6 +537,12 @@ views:
                   fill_container: true
                   tap_action:
                     action: more-info
+                  card_mod:
+                    style: |
+                      ha-card {
+                        border: none;
+                      }
+
       - type: custom:stack-in-card
         mode: vertical
         cards:
@@ -487,6 +576,12 @@ views:
                   fill_container: true
                   tap_action:
                     action: more-info
+                  card_mod:
+                    style: |
+                      ha-card {
+                        border: none;
+                      }
+
               - type: conditional
                 conditions:
                   - entity: sensor.bedroom_air_2_humidity
@@ -515,6 +610,12 @@ views:
                   fill_container: true
                   tap_action:
                     action: more-info
+                  card_mod:
+                    style: |
+                      ha-card {
+                        border: none;
+                      }
+
               - type: conditional
                 conditions:
                   - entity: sensor.bedroom_air_2_voc
@@ -539,6 +640,12 @@ views:
                   fill_container: true
                   tap_action:
                     action: more-info
+                  card_mod:
+                    style: |
+                      ha-card {
+                        border: none;
+                      }
+
       - type: custom:stack-in-card
         mode: vertical
         cards:
@@ -572,6 +679,12 @@ views:
                   fill_container: true
                   tap_action:
                     action: more-info
+                  card_mod:
+                    style: |
+                      ha-card {
+                        border: none;
+                      }
+
               - type: conditional
                 conditions:
                   - entity: sensor.kayla_office_air_humidity
@@ -600,6 +713,12 @@ views:
                   fill_container: true
                   tap_action:
                     action: more-info
+                  card_mod:
+                    style: |
+                      ha-card {
+                        border: none;
+                      }
+
               - type: conditional
                 conditions:
                   - entity: sensor.kayla_office_air_vocs
@@ -624,6 +743,12 @@ views:
                   fill_container: true
                   tap_action:
                     action: more-info
+                  card_mod:
+                    style: |
+                      ha-card {
+                        border: none;
+                      }
+
       - type: custom:stack-in-card
         mode: vertical
         cards:
@@ -657,6 +782,12 @@ views:
                   fill_container: true
                   tap_action:
                     action: more-info
+                  card_mod:
+                    style: |
+                      ha-card {
+                        border: none;
+                      }
+
               - type: conditional
                 conditions:
                   - entity: sensor.eric_office_air_humidity
@@ -685,6 +816,12 @@ views:
                   fill_container: true
                   tap_action:
                     action: more-info
+                  card_mod:
+                    style: |
+                      ha-card {
+                        border: none;
+                      }
+
               - type: conditional
                 conditions:
                   - entity: sensor.eric_office_air_vocs
@@ -709,3 +846,8 @@ views:
                   fill_container: true
                   tap_action:
                     action: more-info
+                  card_mod:
+                    style: |
+                      ha-card {
+                        border: none;
+                      }
