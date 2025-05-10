@@ -9,6 +9,8 @@ lovelace:
       type: module
     - url: /hacsfiles/lovelace-card-mod/card-mod.js
       type: module
+    - url: /hacsfiles/mini-graph-card/mini-graph-card-bundle.js
+      type: module
   dashboards:
     dashy-mcdashboardface:
       mode: yaml

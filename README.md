@@ -12,10 +12,11 @@ This is our personal Mushroom UI setup, built for a tablet-friendly, clean inter
 ## Prerequisites
 
 This dashboard requires the following HACS Frontend integrations:
-- auto-entities
-- mushroom
+- lovelace-auto-entities
+- lovelace-mushroom
 - stack-in-card
-- card-mod
+- lovelace-card-mod
+- mini-graph-card
 
 ## Installation
 
