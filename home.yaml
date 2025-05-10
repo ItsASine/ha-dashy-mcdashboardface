@@ -49,6 +49,8 @@ views:
                 secondary: "{{ states(entity) }} °F"
                 layout: vertical
                 fill_container: true
+                tap_action:
+                  action: more-info
               - type: custom:mushroom-entity-card
                 entity: sensor.living_room_humidity
                 name: Humidity
@@ -58,6 +60,8 @@ views:
                 secondary_info: state
                 layout: vertical
                 fill_container: true
+                tap_action:
+                  action: more-info
               - type: custom:mushroom-template-card
                 entity: sensor.living_room_voc
                 icon: mdi:check-circle
@@ -73,6 +77,8 @@ views:
                 secondary: "{{ states(entity) }} ppb"
                 layout: vertical
                 fill_container: true
+                tap_action:
+                  action: more-info
           - type: horizontal-stack
             cards:
               - type: custom:mushroom-light-card
@@ -106,6 +112,8 @@ views:
                 secondary: "{{ states(entity) }} °F"
                 layout: vertical
                 fill_container: true
+                tap_action:
+                  action: more-info
               - type: custom:mushroom-entity-card
                 entity: sensor.living_room_air_2_humidity
                 name: Humidity
@@ -114,6 +122,8 @@ views:
                 secondary_info: state
                 layout: vertical
                 fill_container: true
+                tap_action:
+                  action: more-info
               - type: custom:mushroom-template-card
                 entity: sensor.living_room_air_2_voc
                 icon: mdi:check-circle
@@ -129,6 +139,8 @@ views:
                 secondary: "{{ states(entity) }} ppb"
                 layout: vertical
                 fill_container: true
+                tap_action:
+                  action: more-info
           - type: horizontal-stack
             cards:
               - type: custom:mushroom-light-card
@@ -159,6 +171,8 @@ views:
                 secondary: "{{ states(entity) }} °F"
                 layout: vertical
                 fill_container: true
+                tap_action:
+                  action: more-info
               - type: custom:mushroom-entity-card
                 entity: sensor.bedroom_humidity
                 name: Humidity
@@ -167,6 +181,8 @@ views:
                 secondary_info: state
                 layout: vertical
                 fill_container: true
+                tap_action:
+                  action: more-info
               - type: custom:mushroom-template-card
                 entity: sensor.bedroom_voc
                 icon: mdi:check-circle
@@ -182,6 +198,8 @@ views:
                 secondary: "{{ states(entity) }} ppb"
                 layout: vertical
                 fill_container: true
+                tap_action:
+                  action: more-info
           - type: horizontal-stack
             cards:
               - type: custom:mushroom-light-card
@@ -212,6 +230,8 @@ views:
                 secondary: "{{ states(entity) }} °F"
                 layout: vertical
                 fill_container: true
+                tap_action:
+                  action: more-info
               - type: custom:mushroom-entity-card
                 entity: sensor.kitchen_humidity
                 name: Humidity
@@ -220,6 +240,8 @@ views:
                 secondary_info: state
                 layout: vertical
                 fill_container: true
+                tap_action:
+                  action: more-info
               - type: custom:mushroom-template-card
                 entity: sensor.kitchen_voc
                 icon: mdi:check-circle
@@ -235,6 +257,8 @@ views:
                 secondary: "{{ states(entity) }} ppb"
                 layout: vertical
                 fill_container: true
+                tap_action:
+                  action: more-info
           - type: horizontal-stack
             cards:
               - type: custom:mushroom-light-card
@@ -268,6 +292,8 @@ views:
                 secondary: "{{ states(entity) }} °F"
                 layout: vertical
                 fill_container: true
+                tap_action:
+                  action: more-info
               - type: custom:mushroom-entity-card
                 entity: sensor.bathroom_humidity
                 name: Humidity
@@ -276,6 +302,8 @@ views:
                 secondary_info: state
                 layout: vertical
                 fill_container: true
+                tap_action:
+                  action: more-info
               - type: custom:mushroom-template-card
                 entity: sensor.bathroom_voc
                 icon: mdi:check-circle
@@ -291,6 +319,8 @@ views:
                 secondary: "{{ states(entity) }} ppb"
                 layout: vertical
                 fill_container: true
+                tap_action:
+                  action: more-info
           - type: horizontal-stack
             cards:
               - type: custom:mushroom-light-card
@@ -321,6 +351,8 @@ views:
                 secondary: "{{ states(entity) }} °F"
                 layout: vertical
                 fill_container: true
+                tap_action:
+                  action: more-info
               - type: custom:mushroom-entity-card
                 entity: sensor.bedroom_air_2_humidity
                 name: Humidity
@@ -329,6 +361,8 @@ views:
                 secondary_info: state
                 layout: vertical
                 fill_container: true
+                tap_action:
+                  action: more-info
               - type: custom:mushroom-template-card
                 entity: sensor.bedroom_air_2_voc
                 icon: mdi:check-circle
@@ -344,6 +378,8 @@ views:
                 secondary: "{{ states(entity) }} ppb"
                 layout: vertical
                 fill_container: true
+                tap_action:
+                  action: more-info
           - type: horizontal-stack
             cards:
               - type: custom:mushroom-light-card
@@ -374,6 +410,8 @@ views:
                 secondary: "{{ states(entity) }} °F"
                 layout: vertical
                 fill_container: true
+                tap_action:
+                  action: more-info
               - type: custom:mushroom-entity-card
                 entity: sensor.kayla_office_air_humidity
                 name: Humidity
@@ -382,6 +420,8 @@ views:
                 secondary_info: state
                 layout: vertical
                 fill_container: true
+                tap_action:
+                  action: more-info
               - type: custom:mushroom-template-card
                 entity: sensor.kayla_office_air_vocs
                 icon: mdi:check-circle
@@ -397,6 +437,8 @@ views:
                 secondary: "{{ states(entity) }} ppb"
                 layout: vertical
                 fill_container: true
+                tap_action:
+                  action: more-info
           - type: horizontal-stack
             cards:
               - type: custom:mushroom-light-card
@@ -427,6 +469,8 @@ views:
                 secondary: "{{ states(entity) }} °F"
                 layout: vertical
                 fill_container: true
+                tap_action:
+                  action: more-info
               - type: custom:mushroom-entity-card
                 entity: sensor.eric_office_air_humidity
                 name: Humidity
@@ -435,6 +479,8 @@ views:
                 secondary_info: state
                 layout: vertical
                 fill_container: true
+                tap_action:
+                  action: more-info
               - type: custom:mushroom-template-card
                 entity: sensor.eric_office_air_vocs
                 icon: mdi:check-circle
@@ -450,6 +496,8 @@ views:
                 secondary: "{{ states(entity) }} ppb"
                 layout: vertical
                 fill_container: true
+                tap_action:
+                  action: more-info
           - type: horizontal-stack
             cards:
               - type: custom:mushroom-light-card
