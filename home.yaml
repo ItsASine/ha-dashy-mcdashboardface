@@ -121,63 +121,84 @@ views:
             title: Dining Room
           - type: horizontal-stack
             cards:
-              - type: custom:mushroom-template-card
-                entity: sensor.living_room_air_2_temperature
-                icon: mdi:thermometer
-                icon_color: >
-                  {% if states(entity) | float > 80 %}
-                    red
-                  {% elif states(entity) | float > 74 %}
-                    yellow
-                  {% elif states(entity) | float > 66 %}
-                    green
-                  {% else %}
-                    blue
-                  {% endif %}
-                primary: Temperature
-                secondary: "{{ states(entity) }} °F"
-                layout: vertical
-                fill_container: true
-                tap_action:
-                  action: more-info
-              - type: custom:mushroom-template-card
-                entity: sensor.living_room_air_2_humidity
-                icon: mdi:water-percent
-                icon_color: >
-                  {% if states(entity) | float > 70 %}
-                    red
-                  {% elif states(entity) | float > 60 %}
-                    yellow
-                  {% elif states(entity) | float > 30 %}
-                    green
-                  {% elif states(entity) | float > 25 %}
-                    yellow
-                  {% else %}
-                    red
-                  {% endif %}
-                primary: Humidity
-                secondary: "{{ states(entity) }} %"
-                layout: vertical
-                fill_container: true
-                tap_action:
-                  action: more-info
-              - type: custom:mushroom-template-card
-                entity: sensor.living_room_air_2_voc
-                icon: mdi:check-circle
-                icon_color: >
-                  {% if states(entity) | float > 2000 %}
-                    red
-                  {% elif states(entity) | float > 250 %}
-                    yellow
-                  {% else %}
-                    green
-                  {% endif %}
-                primary: VOC
-                secondary: "{{ states(entity) }} ppb"
-                layout: vertical
-                fill_container: true
-                tap_action:
-                  action: more-info
+              - type: conditional
+                conditions:
+                  - entity: sensor.living_room_air_2_temperature
+                    state_not: unavailable
+                  - entity: sensor.living_room_air_2_temperature
+                    state_not: unknown
+                card:
+                  type: custom:mushroom-template-card
+                  entity: sensor.living_room_air_2_temperature
+                  icon: mdi:thermometer
+                  icon_color: >
+                    {% if states(entity) | float > 80 %}
+                      red
+                    {% elif states(entity) | float > 74 %}
+                      yellow
+                    {% elif states(entity) | float > 66 %}
+                      green
+                    {% else %}
+                      blue
+                    {% endif %}
+                  primary: Temperature
+                  secondary: "{{ states(entity) }} °F"
+                  layout: vertical
+                  fill_container: true
+                  tap_action:
+                    action: more-info
+              - type: conditional
+                conditions:
+                  - entity: sensor.living_room_air_2_humidity
+                    state_not: unavailable
+                  - entity: sensor.living_room_air_2_humidity
+                    state_not: unknown
+                card:
+                  type: custom:mushroom-template-card
+                  entity: sensor.living_room_air_2_humidity
+                  icon: mdi:water-percent
+                  icon_color: >
+                    {% if states(entity) | float > 70 %}
+                      red
+                    {% elif states(entity) | float > 60 %}
+                      yellow
+                    {% elif states(entity) | float > 30 %}
+                      green
+                    {% elif states(entity) | float > 25 %}
+                      yellow
+                    {% else %}
+                      red
+                    {% endif %}
+                  primary: Humidity
+                  secondary: "{{ states(entity) }} %"
+                  layout: vertical
+                  fill_container: true
+                  tap_action:
+                    action: more-info
+              - type: conditional
+                conditions:
+                  - entity: sensor.living_room_air_2_voc
+                    state_not: unavailable
+                  - entity: sensor.living_room_air_2_voc
+                    state_not: unknown
+                card:
+                  type: custom:mushroom-template-card
+                  entity: sensor.living_room_air_2_voc
+                  icon: mdi:check-circle
+                  icon_color: >
+                    {% if states(entity) | float > 2000 %}
+                      red
+                    {% elif states(entity) | float > 250 %}
+                      yellow
+                    {% else %}
+                      green
+                    {% endif %}
+                  primary: VOC
+                  secondary: "{{ states(entity) }} ppb"
+                  layout: vertical
+                  fill_container: true
+                  tap_action:
+                    action: more-info
       - type: custom:stack-in-card
         mode: vertical
         cards:
@@ -185,63 +206,84 @@ views:
             title: Bedroom
           - type: horizontal-stack
             cards:
-              - type: custom:mushroom-template-card
-                entity: sensor.bedroom_temperature
-                icon: mdi:thermometer
-                icon_color: >
-                  {% if states(entity) | float > 80 %}
-                    red
-                  {% elif states(entity) | float > 74 %}
-                    yellow
-                  {% elif states(entity) | float > 66 %}
-                    green
-                  {% else %}
-                    blue
-                  {% endif %}
-                primary: Temperature
-                secondary: "{{ states(entity) }} °F"
-                layout: vertical
-                fill_container: true
-                tap_action:
-                  action: more-info
-              - type: custom:mushroom-template-card
-                entity: sensor.bedroom_humidity
-                icon: mdi:water-percent
-                icon_color: >
-                  {% if states(entity) | float > 70 %}
-                    red
-                  {% elif states(entity) | float > 60 %}
-                    yellow
-                  {% elif states(entity) | float > 30 %}
-                    green
-                  {% elif states(entity) | float > 25 %}
-                    yellow
-                  {% else %}
-                    red
-                  {% endif %}
-                primary: Humidity
-                secondary: "{{ states(entity) }} %"
-                layout: vertical
-                fill_container: true
-                tap_action:
-                  action: more-info
-              - type: custom:mushroom-template-card
-                entity: sensor.bedroom_voc
-                icon: mdi:check-circle
-                icon_color: >
-                  {% if states(entity) | float > 2000 %}
-                    red
-                  {% elif states(entity) | float > 250 %}
-                    yellow
-                  {% else %}
-                    green
-                  {% endif %}
-                primary: VOC
-                secondary: "{{ states(entity) }} ppb"
-                layout: vertical
-                fill_container: true
-                tap_action:
-                  action: more-info
+              - type: conditional
+                conditions:
+                  - entity: sensor.bedroom_temperature
+                    state_not: unavailable
+                  - entity: sensor.bedroom_temperature
+                    state_not: unknown
+                card:
+                  type: custom:mushroom-template-card
+                  entity: sensor.bedroom_temperature
+                  icon: mdi:thermometer
+                  icon_color: >
+                    {% if states(entity) | float > 80 %}
+                      red
+                    {% elif states(entity) | float > 74 %}
+                      yellow
+                    {% elif states(entity) | float > 66 %}
+                      green
+                    {% else %}
+                      blue
+                    {% endif %}
+                  primary: Temperature
+                  secondary: "{{ states(entity) }} °F"
+                  layout: vertical
+                  fill_container: true
+                  tap_action:
+                    action: more-info
+              - type: conditional
+                conditions:
+                  - entity: sensor.bedroom_humidity
+                    state_not: unavailable
+                  - entity: sensor.bedroom_humidity
+                    state_not: unknown
+                card:
+                  type: custom:mushroom-template-card
+                  entity: sensor.bedroom_humidity
+                  icon: mdi:water-percent
+                  icon_color: >
+                    {% if states(entity) | float > 70 %}
+                      red
+                    {% elif states(entity) | float > 60 %}
+                      yellow
+                    {% elif states(entity) | float > 30 %}
+                      green
+                    {% elif states(entity) | float > 25 %}
+                      yellow
+                    {% else %}
+                      red
+                    {% endif %}
+                  primary: Humidity
+                  secondary: "{{ states(entity) }} %"
+                  layout: vertical
+                  fill_container: true
+                  tap_action:
+                    action: more-info
+              - type: conditional
+                conditions:
+                  - entity: sensor.bedroom_voc
+                    state_not: unavailable
+                  - entity: sensor.bedroom_voc
+                    state_not: unknown
+                card:
+                  type: custom:mushroom-template-card
+                  entity: sensor.bedroom_voc
+                  icon: mdi:check-circle
+                  icon_color: >
+                    {% if states(entity) | float > 2000 %}
+                      red
+                    {% elif states(entity) | float > 250 %}
+                      yellow
+                    {% else %}
+                      green
+                    {% endif %}
+                  primary: VOC
+                  secondary: "{{ states(entity) }} ppb"
+                  layout: vertical
+                  fill_container: true
+                  tap_action:
+                    action: more-info
       - type: custom:stack-in-card
         mode: vertical
         cards:
@@ -249,63 +291,84 @@ views:
             title: Kitchen
           - type: horizontal-stack
             cards:
-              - type: custom:mushroom-template-card
-                entity: sensor.kitchen_temperature
-                icon: mdi:thermometer
-                icon_color: >
-                  {% if states(entity) | float > 80 %}
-                    red
-                  {% elif states(entity) | float > 74 %}
-                    yellow
-                  {% elif states(entity) | float > 66 %}
-                    green
-                  {% else %}
-                    blue
-                  {% endif %}
-                primary: Temperature
-                secondary: "{{ states(entity) }} °F"
-                layout: vertical
-                fill_container: true
-                tap_action:
-                  action: more-info
-              - type: custom:mushroom-template-card
-                entity: sensor.kitchen_humidity
-                icon: mdi:water-percent
-                icon_color: >
-                  {% if states(entity) | float > 70 %}
-                    red
-                  {% elif states(entity) | float > 60 %}
-                    yellow
-                  {% elif states(entity) | float > 30 %}
-                    green
-                  {% elif states(entity) | float > 25 %}
-                    yellow
-                  {% else %}
-                    red
-                  {% endif %}
-                primary: Humidity
-                secondary: "{{ states(entity) }} %"
-                layout: vertical
-                fill_container: true
-                tap_action:
-                  action: more-info
-              - type: custom:mushroom-template-card
-                entity: sensor.kitchen_voc
-                icon: mdi:check-circle
-                icon_color: >
-                  {% if states(entity) | float > 2000 %}
-                    red
-                  {% elif states(entity) | float > 250 %}
-                    yellow
-                  {% else %}
-                    green
-                  {% endif %}
-                primary: VOC
-                secondary: "{{ states(entity) }} ppb"
-                layout: vertical
-                fill_container: true
-                tap_action:
-                  action: more-info
+              - type: conditional
+                conditions:
+                  - entity: sensor.kitchen_temperature
+                    state_not: unavailable
+                  - entity: sensor.kitchen_temperature
+                    state_not: unknown
+                card:
+                  type: custom:mushroom-template-card
+                  entity: sensor.kitchen_temperature
+                  icon: mdi:thermometer
+                  icon_color: >
+                    {% if states(entity) | float > 80 %}
+                      red
+                    {% elif states(entity) | float > 74 %}
+                      yellow
+                    {% elif states(entity) | float > 66 %}
+                      green
+                    {% else %}
+                      blue
+                    {% endif %}
+                  primary: Temperature
+                  secondary: "{{ states(entity) }} °F"
+                  layout: vertical
+                  fill_container: true
+                  tap_action:
+                    action: more-info
+              - type: conditional
+                conditions:
+                  - entity: sensor.kitchen_humidity
+                    state_not: unavailable
+                  - entity: sensor.kitchen_humidity
+                    state_not: unknown
+                card:
+                  type: custom:mushroom-template-card
+                  entity: sensor.kitchen_humidity
+                  icon: mdi:water-percent
+                  icon_color: >
+                    {% if states(entity) | float > 70 %}
+                      red
+                    {% elif states(entity) | float > 60 %}
+                      yellow
+                    {% elif states(entity) | float > 30 %}
+                      green
+                    {% elif states(entity) | float > 25 %}
+                      yellow
+                    {% else %}
+                      red
+                    {% endif %}
+                  primary: Humidity
+                  secondary: "{{ states(entity) }} %"
+                  layout: vertical
+                  fill_container: true
+                  tap_action:
+                    action: more-info
+              - type: conditional
+                conditions:
+                  - entity: sensor.kitchen_voc
+                    state_not: unavailable
+                  - entity: sensor.kitchen_voc
+                    state_not: unknown
+                card:
+                  type: custom:mushroom-template-card
+                  entity: sensor.kitchen_voc
+                  icon: mdi:check-circle
+                  icon_color: >
+                    {% if states(entity) | float > 2000 %}
+                      red
+                    {% elif states(entity) | float > 250 %}
+                      yellow
+                    {% else %}
+                      green
+                    {% endif %}
+                  primary: VOC
+                  secondary: "{{ states(entity) }} ppb"
+                  layout: vertical
+                  fill_container: true
+                  tap_action:
+                    action: more-info
       - type: custom:stack-in-card
         mode: vertical
         cards:
@@ -313,63 +376,84 @@ views:
             title: Bathroom
           - type: horizontal-stack
             cards:
-              - type: custom:mushroom-template-card
-                entity: sensor.bathroom_temperature
-                icon: mdi:thermometer
-                icon_color: >
-                  {% if states(entity) | float > 80 %}
-                    red
-                  {% elif states(entity) | float > 74 %}
-                    yellow
-                  {% elif states(entity) | float > 66 %}
-                    green
-                  {% else %}
-                    blue
-                  {% endif %}
-                primary: Temperature
-                secondary: "{{ states(entity) }} °F"
-                layout: vertical
-                fill_container: true
-                tap_action:
-                  action: more-info
-              - type: custom:mushroom-template-card
-                entity: sensor.bathroom_humidity
-                icon: mdi:water-percent
-                icon_color: >
-                  {% if states(entity) | float > 70 %}
-                    red
-                  {% elif states(entity) | float > 60 %}
-                    yellow
-                  {% elif states(entity) | float > 30 %}
-                    green
-                  {% elif states(entity) | float > 25 %}
-                    yellow
-                  {% else %}
-                    red
-                  {% endif %}
-                primary: Humidity
-                secondary: "{{ states(entity) }} %"
-                layout: vertical
-                fill_container: true
-                tap_action:
-                  action: more-info
-              - type: custom:mushroom-template-card
-                entity: sensor.bathroom_voc
-                icon: mdi:check-circle
-                icon_color: >
-                  {% if states(entity) | float > 2000 %}
-                    red
-                  {% elif states(entity) | float > 250 %}
-                    yellow
-                  {% else %}
-                    green
-                  {% endif %}
-                primary: VOC
-                secondary: "{{ states(entity) }} ppb"
-                layout: vertical
-                fill_container: true
-                tap_action:
-                  action: more-info
+              - type: conditional
+                conditions:
+                  - entity: sensor.bathroom_temperature
+                    state_not: unavailable
+                  - entity: sensor.bathroom_temperature
+                    state_not: unknown
+                card:
+                  type: custom:mushroom-template-card
+                  entity: sensor.bathroom_temperature
+                  icon: mdi:thermometer
+                  icon_color: >
+                    {% if states(entity) | float > 80 %}
+                      red
+                    {% elif states(entity) | float > 74 %}
+                      yellow
+                    {% elif states(entity) | float > 66 %}
+                      green
+                    {% else %}
+                      blue
+                    {% endif %}
+                  primary: Temperature
+                  secondary: "{{ states(entity) }} °F"
+                  layout: vertical
+                  fill_container: true
+                  tap_action:
+                    action: more-info
+              - type: conditional
+                conditions:
+                  - entity: sensor.bathroom_humidity
+                    state_not: unavailable
+                  - entity: sensor.bathroom_humidity
+                    state_not: unknown
+                card:
+                  type: custom:mushroom-template-card
+                  entity: sensor.bathroom_humidity
+                  icon: mdi:water-percent
+                  icon_color: >
+                    {% if states(entity) | float > 70 %}
+                      red
+                    {% elif states(entity) | float > 60 %}
+                      yellow
+                    {% elif states(entity) | float > 30 %}
+                      green
+                    {% elif states(entity) | float > 25 %}
+                      yellow
+                    {% else %}
+                      red
+                    {% endif %}
+                  primary: Humidity
+                  secondary: "{{ states(entity) }} %"
+                  layout: vertical
+                  fill_container: true
+                  tap_action:
+                    action: more-info
+              - type: conditional
+                conditions:
+                  - entity: sensor.bathroom_voc
+                    state_not: unavailable
+                  - entity: sensor.bathroom_voc
+                    state_not: unknown
+                card:
+                  type: custom:mushroom-template-card
+                  entity: sensor.bathroom_voc
+                  icon: mdi:check-circle
+                  icon_color: >
+                    {% if states(entity) | float > 2000 %}
+                      red
+                    {% elif states(entity) | float > 250 %}
+                      yellow
+                    {% else %}
+                      green
+                    {% endif %}
+                  primary: VOC
+                  secondary: "{{ states(entity) }} ppb"
+                  layout: vertical
+                  fill_container: true
+                  tap_action:
+                    action: more-info
       - type: custom:stack-in-card
         mode: vertical
         cards:
@@ -377,63 +461,84 @@ views:
             title: Bathroom 2
           - type: horizontal-stack
             cards:
-              - type: custom:mushroom-template-card
-                entity: sensor.bedroom_air_2_temperature
-                icon: mdi:thermometer
-                icon_color: >
-                  {% if states(entity) | float > 80 %}
-                    red
-                  {% elif states(entity) | float > 74 %}
-                    yellow
-                  {% elif states(entity) | float > 66 %}
-                    green
-                  {% else %}
-                    blue
-                  {% endif %}
-                primary: Temperature
-                secondary: "{{ states(entity) }} °F"
-                layout: vertical
-                fill_container: true
-                tap_action:
-                  action: more-info
-              - type: custom:mushroom-template-card
-                entity: sensor.bedroom_air_2_humidity
-                icon: mdi:water-percent
-                icon_color: >
-                  {% if states(entity) | float > 70 %}
-                    red
-                  {% elif states(entity) | float > 60 %}
-                    yellow
-                  {% elif states(entity) | float > 30 %}
-                    green
-                  {% elif states(entity) | float > 25 %}
-                    yellow
-                  {% else %}
-                    red
-                  {% endif %}
-                primary: Humidity
-                secondary: "{{ states(entity) }} %"
-                layout: vertical
-                fill_container: true
-                tap_action:
-                  action: more-info
-              - type: custom:mushroom-template-card
-                entity: sensor.bedroom_air_2_voc
-                icon: mdi:check-circle
-                icon_color: >
-                  {% if states(entity) | float > 2000 %}
-                    red
-                  {% elif states(entity) | float > 250 %}
-                    yellow
-                  {% else %}
-                    green
-                  {% endif %}
-                primary: VOC
-                secondary: "{{ states(entity) }} ppb"
-                layout: vertical
-                fill_container: true
-                tap_action:
-                  action: more-info
+              - type: conditional
+                conditions:
+                  - entity: sensor.bedroom_air_2_temperature
+                    state_not: unavailable
+                  - entity: sensor.bedroom_air_2_temperature
+                    state_not: unknown
+                card:
+                  type: custom:mushroom-template-card
+                  entity: sensor.bedroom_air_2_temperature
+                  icon: mdi:thermometer
+                  icon_color: >
+                    {% if states(entity) | float > 80 %}
+                      red
+                    {% elif states(entity) | float > 74 %}
+                      yellow
+                    {% elif states(entity) | float > 66 %}
+                      green
+                    {% else %}
+                      blue
+                    {% endif %}
+                  primary: Temperature
+                  secondary: "{{ states(entity) }} °F"
+                  layout: vertical
+                  fill_container: true
+                  tap_action:
+                    action: more-info
+              - type: conditional
+                conditions:
+                  - entity: sensor.bedroom_air_2_humidity
+                    state_not: unavailable
+                  - entity: sensor.bedroom_air_2_humidity
+                    state_not: unknown
+                card:
+                  type: custom:mushroom-template-card
+                  entity: sensor.bedroom_air_2_humidity
+                  icon: mdi:water-percent
+                  icon_color: >
+                    {% if states(entity) | float > 70 %}
+                      red
+                    {% elif states(entity) | float > 60 %}
+                      yellow
+                    {% elif states(entity) | float > 30 %}
+                      green
+                    {% elif states(entity) | float > 25 %}
+                      yellow
+                    {% else %}
+                      red
+                    {% endif %}
+                  primary: Humidity
+                  secondary: "{{ states(entity) }} %"
+                  layout: vertical
+                  fill_container: true
+                  tap_action:
+                    action: more-info
+              - type: conditional
+                conditions:
+                  - entity: sensor.bedroom_air_2_voc
+                    state_not: unavailable
+                  - entity: sensor.bedroom_air_2_voc
+                    state_not: unknown
+                card:
+                  type: custom:mushroom-template-card
+                  entity: sensor.bedroom_air_2_voc
+                  icon: mdi:check-circle
+                  icon_color: >
+                    {% if states(entity) | float > 2000 %}
+                      red
+                    {% elif states(entity) | float > 250 %}
+                      yellow
+                    {% else %}
+                      green
+                    {% endif %}
+                  primary: VOC
+                  secondary: "{{ states(entity) }} ppb"
+                  layout: vertical
+                  fill_container: true
+                  tap_action:
+                    action: more-info
       - type: custom:stack-in-card
         mode: vertical
         cards:
@@ -441,63 +546,84 @@ views:
             title: Kayla's Office
           - type: horizontal-stack
             cards:
-              - type: custom:mushroom-template-card
-                entity: sensor.kayla_office_air_temperature
-                icon: mdi:thermometer
-                icon_color: >
-                  {% if states(entity) | float > 80 %}
-                    red
-                  {% elif states(entity) | float > 74 %}
-                    yellow
-                  {% elif states(entity) | float > 66 %}
-                    green
-                  {% else %}
-                    blue
-                  {% endif %}
-                primary: Temperature
-                secondary: "{{ states(entity) }} °F"
-                layout: vertical
-                fill_container: true
-                tap_action:
-                  action: more-info
-              - type: custom:mushroom-template-card
-                entity: sensor.kayla_office_air_humidity
-                icon: mdi:water-percent
-                icon_color: >
-                  {% if states(entity) | float > 70 %}
-                    red
-                  {% elif states(entity) | float > 60 %}
-                    yellow
-                  {% elif states(entity) | float > 30 %}
-                    green
-                  {% elif states(entity) | float > 25 %}
-                    yellow
-                  {% else %}
-                    red
-                  {% endif %}
-                primary: Humidity
-                secondary: "{{ states(entity) }} %"
-                layout: vertical
-                fill_container: true
-                tap_action:
-                  action: more-info
-              - type: custom:mushroom-template-card
-                entity: sensor.kayla_office_air_vocs
-                icon: mdi:check-circle
-                icon_color: >
-                  {% if states(entity) | float > 2000 %}
-                    red
-                  {% elif states(entity) | float > 250 %}
-                    yellow
-                  {% else %}
-                    green
-                  {% endif %}
-                primary: VOC
-                secondary: "{{ states(entity) }} ppb"
-                layout: vertical
-                fill_container: true
-                tap_action:
-                  action: more-info
+              - type: conditional
+                conditions:
+                  - entity: sensor.kayla_office_air_temperature
+                    state_not: unavailable
+                  - entity: sensor.kayla_office_air_temperature
+                    state_not: unknown
+                card:
+                  type: custom:mushroom-template-card
+                  entity: sensor.kayla_office_air_temperature
+                  icon: mdi:thermometer
+                  icon_color: >
+                    {% if states(entity) | float > 80 %}
+                      red
+                    {% elif states(entity) | float > 74 %}
+                      yellow
+                    {% elif states(entity) | float > 66 %}
+                      green
+                    {% else %}
+                      blue
+                    {% endif %}
+                  primary: Temperature
+                  secondary: "{{ states(entity) }} °F"
+                  layout: vertical
+                  fill_container: true
+                  tap_action:
+                    action: more-info
+              - type: conditional
+                conditions:
+                  - entity: sensor.kayla_office_air_humidity
+                    state_not: unavailable
+                  - entity: sensor.kayla_office_air_humidity
+                    state_not: unknown
+                card:
+                  type: custom:mushroom-template-card
+                  entity: sensor.kayla_office_air_humidity
+                  icon: mdi:water-percent
+                  icon_color: >
+                    {% if states(entity) | float > 70 %}
+                      red
+                    {% elif states(entity) | float > 60 %}
+                      yellow
+                    {% elif states(entity) | float > 30 %}
+                      green
+                    {% elif states(entity) | float > 25 %}
+                      yellow
+                    {% else %}
+                      red
+                    {% endif %}
+                  primary: Humidity
+                  secondary: "{{ states(entity) }} %"
+                  layout: vertical
+                  fill_container: true
+                  tap_action:
+                    action: more-info
+              - type: conditional
+                conditions:
+                  - entity: sensor.kayla_office_air_vocs
+                    state_not: unavailable
+                  - entity: sensor.kayla_office_air_vocs
+                    state_not: unknown
+                card:
+                  type: custom:mushroom-template-card
+                  entity: sensor.kayla_office_air_vocs
+                  icon: mdi:check-circle
+                  icon_color: >
+                    {% if states(entity) | float > 2000 %}
+                      red
+                    {% elif states(entity) | float > 250 %}
+                      yellow
+                    {% else %}
+                      green
+                    {% endif %}
+                  primary: VOC
+                  secondary: "{{ states(entity) }} ppb"
+                  layout: vertical
+                  fill_container: true
+                  tap_action:
+                    action: more-info
       - type: custom:stack-in-card
         mode: vertical
         cards:
@@ -505,60 +631,81 @@ views:
             title: Eric's Office
           - type: horizontal-stack
             cards:
-              - type: custom:mushroom-template-card
-                entity: sensor.eric_office_air_temperature
-                icon: mdi:thermometer
-                icon_color: >
-                  {% if states(entity) | float > 80 %}
-                    red
-                  {% elif states(entity) | float > 74 %}
-                    yellow
-                  {% elif states(entity) | float > 66 %}
-                    green
-                  {% else %}
-                    blue
-                  {% endif %}
-                primary: Temperature
-                secondary: "{{ states(entity) }} °F"
-                layout: vertical
-                fill_container: true
-                tap_action:
-                  action: more-info
-              - type: custom:mushroom-template-card
-                entity: sensor.eric_office_air_humidity
-                icon: mdi:water-percent
-                icon_color: >
-                  {% if states(entity) | float > 70 %}
-                    red
-                  {% elif states(entity) | float > 60 %}
-                    yellow
-                  {% elif states(entity) | float > 30 %}
-                    green
-                  {% elif states(entity) | float > 25 %}
-                    yellow
-                  {% else %}
-                    red
-                  {% endif %}
-                primary: Humidity
-                secondary: "{{ states(entity) }} %"
-                layout: vertical
-                fill_container: true
-                tap_action:
-                  action: more-info
-              - type: custom:mushroom-template-card
-                entity: sensor.eric_office_air_vocs
-                icon: mdi:check-circle
-                icon_color: >
-                  {% if states(entity) | float > 2000 %}
-                    red
-                  {% elif states(entity) | float > 250 %}
-                    yellow
-                  {% else %}
-                    green
-                  {% endif %}
-                primary: VOC
-                secondary: "{{ states(entity) }} ppb"
-                layout: vertical
-                fill_container: true
-                tap_action:
-                  action: more-info
+              - type: conditional
+                conditions:
+                  - entity: sensor.eric_office_air_temperature
+                    state_not: unavailable
+                  - entity: sensor.eric_office_air_temperature
+                    state_not: unknown
+                card:
+                  type: custom:mushroom-template-card
+                  entity: sensor.eric_office_air_temperature
+                  icon: mdi:thermometer
+                  icon_color: >
+                    {% if states(entity) | float > 80 %}
+                      red
+                    {% elif states(entity) | float > 74 %}
+                      yellow
+                    {% elif states(entity) | float > 66 %}
+                      green
+                    {% else %}
+                      blue
+                    {% endif %}
+                  primary: Temperature
+                  secondary: "{{ states(entity) }} °F"
+                  layout: vertical
+                  fill_container: true
+                  tap_action:
+                    action: more-info
+              - type: conditional
+                conditions:
+                  - entity: sensor.eric_office_air_humidity
+                    state_not: unavailable
+                  - entity: sensor.eric_office_air_humidity
+                    state_not: unknown
+                card:
+                  type: custom:mushroom-template-card
+                  entity: sensor.eric_office_air_humidity
+                  icon: mdi:water-percent
+                  icon_color: >
+                    {% if states(entity) | float > 70 %}
+                      red
+                    {% elif states(entity) | float > 60 %}
+                      yellow
+                    {% elif states(entity) | float > 30 %}
+                      green
+                    {% elif states(entity) | float > 25 %}
+                      yellow
+                    {% else %}
+                      red
+                    {% endif %}
+                  primary: Humidity
+                  secondary: "{{ states(entity) }} %"
+                  layout: vertical
+                  fill_container: true
+                  tap_action:
+                    action: more-info
+              - type: conditional
+                conditions:
+                  - entity: sensor.eric_office_air_vocs
+                    state_not: unavailable
+                  - entity: sensor.eric_office_air_vocs
+                    state_not: unknown
+                card:
+                  type: custom:mushroom-template-card
+                  entity: sensor.eric_office_air_vocs
+                  icon: mdi:check-circle
+                  icon_color: >
+                    {% if states(entity) | float > 2000 %}
+                      red
+                    {% elif states(entity) | float > 250 %}
+                      yellow
+                    {% else %}
+                      green
+                    {% endif %}
+                  primary: VOC
+                  secondary: "{{ states(entity) }} ppb"
+                  layout: vertical
+                  fill_container: true
+                  tap_action:
+                    action: more-info
