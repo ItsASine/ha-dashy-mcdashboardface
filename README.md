@@ -6,16 +6,17 @@ This is our personal Mushroom UI setup, built for a tablet-friendly, clean inter
 
 **Features:**
 - Person chips with current zone and map tap-through
-- Room cards with at-a-glance temperature and device status
+- Room cards with at-a-glance temperature status
 - Clean rounded-corner aesthetic via Mushroom cards
-- No third-party services, iframe nonsense, or abandoned frameworks
 
 ## Prerequisites
 
 This dashboard requires the following HACS Frontend integrations:
-- [Mushroom Cards](https://github.com/piitaya/lovelace-mushroom)
-- [Auto-Entities](https://github.com/thomasloven/lovelace-auto-entities)
-- [Layout Card](https://github.com/thomasloven/lovelace-layout-card)
+- lovelace-auto-entities
+- lovelace-mushroom
+- stack-in-card
+- lovelace-card-mod
+- mini-graph-card
 
 ## Installation
 

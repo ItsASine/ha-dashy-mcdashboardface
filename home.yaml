@@ -1,25 +1,1590 @@
-title: Home
+title: Home Dashboard
 views:
-  - title: Overview
+  - title: Home
     path: home
     type: sidebar
+    badges: [ ]
     cards:
-      - type: custom:auto-entities
-        columns: 4
-        square: false
-        card_param: cards
-        filter:
-          include:
-            - domain: person
-        sort:
-          method: friendly_name
-        template: >-
-          {{
-            {
-              "type": "custom:mushroom-person-card",
-              "entity": entity,
-              "layout": "vertical",
-              "primary_info": "name",
-              "secondary_info": "state"
-            }
-          }}
+      - type: custom:stack-in-card
+        mode: vertical
+        cards:
+          - type: custom:auto-entities
+            show_empty: true
+            card:
+              type: grid
+              columns: 2
+              square: false
+            card_param: cards
+            filter:
+              include:
+                - domain: person
+                  options:
+                    type: custom:mushroom-person-card
+                    layout: vertical
+                    fill_container: true
+                    primary_info: name
+                    secondary_info: state
+                    icon_type: entity-picture
+                    icon_size: large
+                    alignment: center
+                    card_mod:
+                      style: |
+                        ha-card {
+                          border: none;
+                          --mush-icon-size: 64px;  /* Makes person picture bigger */
+                          padding: 12px;
+                          width: 100%;
+                        }
+                        div.content {
+                          text-align: center;
+                          width: 100%;
+                        }
+                        /* Make text a bit larger */
+                        div.primary {
+                          font-size: 1.2em;
+                          font-weight: 500;
+                        }
+
+      - type: custom:stack-in-card
+        mode: vertical
+        cards:
+          - type: custom:mushroom-title-card
+            title: Living Room
+          - type: horizontal-stack
+            cards:
+              - type: conditional
+                conditions:
+                  - entity: sensor.living_room_temperature
+                    state_not: unavailable
+                  - entity: sensor.living_room_temperature
+                    state_not: unknown
+                card:
+                  type: vertical-stack
+                  cards:
+                    - type: custom:mushroom-template-card
+                      entity: sensor.living_room_temperature
+                      icon: mdi:thermometer
+                      icon_color: >
+                        {% if states(entity) | float > 80 %}
+                          red
+                        {% elif states(entity) | float > 74 %}
+                          yellow
+                        {% elif states(entity) | float > 66 %}
+                          green
+                        {% else %}
+                          blue
+                        {% endif %}
+                      primary: Temperature
+                      secondary: "{{ states(entity) }} °F"
+                      layout: vertical
+                      fill_container: true
+                      tap_action:
+                        action: more-info
+                      card_mod:
+                        style: |
+                          ha-card {
+                            border: none;
+                          }
+                    - type: custom:mini-graph-card
+                      entities:
+                        - entity: sensor.living_room_temperature
+                      height: 50
+                      hours_to_show: 24
+                      points_per_hour: 2
+                      line_width: 2
+                      color_thresholds:
+                        - value: 66
+                          color: "#2196f3"
+                        - value: 74
+                          color: "#4caf50"
+                        - value: 80
+                          color: "#ffc107"
+                        - value: 100
+                          color: "#f44336"
+                      gradient: true
+                      show:
+                        labels: false
+                        points: false
+                        name: false
+                        icon: false
+                        state: false
+                      card_mod:
+                        style: |
+                          ha-card {
+                            border: none;
+                          }
+
+              - type: conditional
+                conditions:
+                  - entity: sensor.living_room_humidity
+                    state_not: unavailable
+                  - entity: sensor.living_room_humidity
+                    state_not: unknown
+                card:
+                  type: vertical-stack
+                  cards:
+                    - type: custom:mushroom-template-card
+                      entity: sensor.living_room_humidity
+                      icon: mdi:water-percent
+                      icon_color: >
+                        {% if states(entity) | float > 70 %}
+                          red
+                        {% elif states(entity) | float > 60 %}
+                          yellow
+                        {% elif states(entity) | float > 30 %}
+                          green
+                        {% elif states(entity) | float > 25 %}
+                          yellow
+                        {% else %}
+                          red
+                        {% endif %}
+                      primary: Humidity
+                      secondary: "{{ states(entity) }} %"
+                      layout: vertical
+                      fill_container: true
+                      tap_action:
+                        action: more-info
+                      card_mod:
+                        style: |
+                          ha-card {
+                            border: none;
+                          }
+                    - type: custom:mini-graph-card
+                      entities:
+                        - entity: sensor.living_room_humidity
+                      height: 50
+                      hours_to_show: 24
+                      points_per_hour: 2
+                      line_width: 2
+                      color_thresholds:
+                        - value: 25
+                          color: "#f44336"
+                        - value: 30
+                          color: "#ffc107"
+                        - value: 60
+                          color: "#4caf50"
+                        - value: 70
+                          color: "#ffc107"
+                        - value: 100
+                          color: "#f44336"
+                      gradient: true
+                      show:
+                        labels: false
+                        points: false
+                        name: false
+                        icon: false
+                        state: false
+                      card_mod:
+                        style: |
+                          ha-card {
+                            border: none;
+                          }
+
+              - type: conditional
+                conditions:
+                  - entity: sensor.living_room_voc
+                    state_not: unavailable
+                  - entity: sensor.living_room_voc
+                    state_not: unknown
+                card:
+                  type: vertical-stack
+                  cards:
+                    - type: custom:mushroom-template-card
+                      entity: sensor.living_room_voc
+                      icon: mdi:check-circle
+                      icon_color: >
+                        {% if states(entity) | float > 2000 %}
+                          red
+                        {% elif states(entity) | float > 250 %}
+                          yellow
+                        {% else %}
+                          green
+                        {% endif %}
+                      primary: VOC
+                      secondary: "{{ states(entity) }} ppb"
+                      layout: vertical
+                      fill_container: true
+                      tap_action:
+                        action: more-info
+                      card_mod:
+                        style: |
+                          ha-card {
+                            border: none;
+                          }
+                    - type: custom:mini-graph-card
+                      entities:
+                        - entity: sensor.living_room_voc
+                      height: 50
+                      hours_to_show: 24
+                      points_per_hour: 2
+                      line_width: 2
+                      color_thresholds:
+                        - value: 250
+                          color: "#4caf50"
+                        - value: 2000
+                          color: "#ffc107"
+                        - value: 9999
+                          color: "#f44336"
+                      gradient: true
+                      show:
+                        labels: false
+                        points: false
+                        name: false
+                        icon: false
+                        state: false
+                      card_mod:
+                        style: |
+                          ha-card {
+                            border: none;
+                          }
+
+      - type: custom:stack-in-card
+        mode: vertical
+        cards:
+          - type: custom:mushroom-title-card
+            title: Dining Room
+          - type: horizontal-stack
+            cards:
+              - type: conditional
+                conditions:
+                  - entity: sensor.living_room_air_2_temperature
+                    state_not: unavailable
+                  - entity: sensor.living_room_air_2_temperature
+                    state_not: unknown
+                card:
+                  type: vertical-stack
+                  cards:
+                    - type: custom:mushroom-template-card
+                      entity: sensor.living_room_air_2_temperature
+                      icon: mdi:thermometer
+                      icon_color: >
+                        {% if states(entity) | float > 80 %}
+                          red
+                        {% elif states(entity) | float > 74 %}
+                          yellow
+                        {% elif states(entity) | float > 66 %}
+                          green
+                        {% else %}
+                          blue
+                        {% endif %}
+                      primary: Temperature
+                      secondary: "{{ states(entity) }} °F"
+                      layout: vertical
+                      fill_container: true
+                      tap_action:
+                        action: more-info
+                      card_mod:
+                        style: |
+                          ha-card {
+                            border: none;
+                          }
+                    - type: custom:mini-graph-card
+                      entities:
+                        - entity: sensor.living_room_air_2_temperature
+                      height: 50
+                      hours_to_show: 24
+                      points_per_hour: 2
+                      line_width: 2
+                      color_thresholds:
+                        - value: 66
+                          color: "#2196f3"
+                        - value: 74
+                          color: "#4caf50"
+                        - value: 80
+                          color: "#ffc107"
+                        - value: 100
+                          color: "#f44336"
+                      gradient: true
+                      show:
+                        labels: false
+                        points: false
+                        name: false
+                        icon: false
+                        state: false
+                      card_mod:
+                        style: |
+                          ha-card {
+                            border: none;
+                          }
+
+              - type: conditional
+                conditions:
+                  - entity: sensor.living_room_air_2_humidity
+                    state_not: unavailable
+                  - entity: sensor.living_room_air_2_humidity
+                    state_not: unknown
+                card:
+                  type: vertical-stack
+                  cards:
+                    - type: custom:mushroom-template-card
+                      entity: sensor.living_room_air_2_humidity
+                      icon: mdi:water-percent
+                      icon_color: >
+                        {% if states(entity) | float > 70 %}
+                          red
+                        {% elif states(entity) | float > 60 %}
+                          yellow
+                        {% elif states(entity) | float > 30 %}
+                          green
+                        {% elif states(entity) | float > 25 %}
+                          yellow
+                        {% else %}
+                          red
+                        {% endif %}
+                      primary: Humidity
+                      secondary: "{{ states(entity) }} %"
+                      layout: vertical
+                      fill_container: true
+                      tap_action:
+                        action: more-info
+                      card_mod:
+                        style: |
+                          ha-card {
+                            border: none;
+                          }
+                    - type: custom:mini-graph-card
+                      entities:
+                        - entity: sensor.living_room_air_2_humidity
+                      height: 50
+                      hours_to_show: 24
+                      points_per_hour: 2
+                      line_width: 2
+                      color_thresholds:
+                        - value: 25
+                          color: "#f44336"
+                        - value: 30
+                          color: "#ffc107"
+                        - value: 60
+                          color: "#4caf50"
+                        - value: 70
+                          color: "#ffc107"
+                        - value: 100
+                          color: "#f44336"
+                      gradient: true
+                      show:
+                        labels: false
+                        points: false
+                        name: false
+                        icon: false
+                        state: false
+                      card_mod:
+                        style: |
+                          ha-card {
+                            border: none;
+                          }
+
+              - type: conditional
+                conditions:
+                  - entity: sensor.living_room_air_2_voc
+                    state_not: unavailable
+                  - entity: sensor.living_room_air_2_voc
+                    state_not: unknown
+                card:
+                  type: vertical-stack
+                  cards:
+                    - type: custom:mushroom-template-card
+                      entity: sensor.living_room_air_2_voc
+                      icon: mdi:check-circle
+                      icon_color: >
+                        {% if states(entity) | float > 2000 %}
+                          red
+                        {% elif states(entity) | float > 250 %}
+                          yellow
+                        {% else %}
+                          green
+                        {% endif %}
+                      primary: VOC
+                      secondary: "{{ states(entity) }} ppb"
+                      layout: vertical
+                      fill_container: true
+                      tap_action:
+                        action: more-info
+                      card_mod:
+                        style: |
+                          ha-card {
+                            border: none;
+                          }
+                    - type: custom:mini-graph-card
+                      entities:
+                        - entity: sensor.living_room_air_2_voc
+                      height: 50
+                      hours_to_show: 24
+                      points_per_hour: 2
+                      line_width: 2
+                      color_thresholds:
+                        - value: 250
+                          color: "#4caf50"
+                        - value: 2000
+                          color: "#ffc107"
+                        - value: 9999
+                          color: "#f44336"
+                      gradient: true
+                      show:
+                        labels: false
+                        points: false
+                        name: false
+                        icon: false
+                        state: false
+                      card_mod:
+                        style: |
+                          ha-card {
+                            border: none;
+                          }
+
+      - type: custom:stack-in-card
+        mode: vertical
+        cards:
+          - type: custom:mushroom-title-card
+            title: Bedroom
+          - type: horizontal-stack
+            cards:
+              - type: conditional
+                conditions:
+                  - entity: sensor.bedroom_temperature
+                    state_not: unavailable
+                  - entity: sensor.bedroom_temperature
+                    state_not: unknown
+                card:
+                  type: vertical-stack
+                  cards:
+                    - type: custom:mushroom-template-card
+                      entity: sensor.bedroom_temperature
+                      icon: mdi:thermometer
+                      icon_color: >
+                        {% if states(entity) | float > 80 %}
+                          red
+                        {% elif states(entity) | float > 74 %}
+                          yellow
+                        {% elif states(entity) | float > 66 %}
+                          green
+                        {% else %}
+                          blue
+                        {% endif %}
+                      primary: Temperature
+                      secondary: "{{ states(entity) }} °F"
+                      layout: vertical
+                      fill_container: true
+                      tap_action:
+                        action: more-info
+                      card_mod:
+                        style: |
+                          ha-card {
+                            border: none;
+                          }
+                    - type: custom:mini-graph-card
+                      entities:
+                        - entity: sensor.bedroom_temperature
+                      height: 50
+                      hours_to_show: 24
+                      points_per_hour: 2
+                      line_width: 2
+                      color_thresholds:
+                        - value: 66
+                          color: "#2196f3"
+                        - value: 74
+                          color: "#4caf50"
+                        - value: 80
+                          color: "#ffc107"
+                        - value: 100
+                          color: "#f44336"
+                      gradient: true
+                      show:
+                        labels: false
+                        points: false
+                        name: false
+                        icon: false
+                        state: false
+                      card_mod:
+                        style: |
+                          ha-card {
+                            border: none;
+                          }
+
+              - type: conditional
+                conditions:
+                  - entity: sensor.bedroom_humidity
+                    state_not: unavailable
+                  - entity: sensor.bedroom_humidity
+                    state_not: unknown
+                card:
+                  type: vertical-stack
+                  cards:
+                    - type: custom:mushroom-template-card
+                      entity: sensor.bedroom_humidity
+                      icon: mdi:water-percent
+                      icon_color: >
+                        {% if states(entity) | float > 70 %}
+                          red
+                        {% elif states(entity) | float > 60 %}
+                          yellow
+                        {% elif states(entity) | float > 30 %}
+                          green
+                        {% elif states(entity) | float > 25 %}
+                          yellow
+                        {% else %}
+                          red
+                        {% endif %}
+                      primary: Humidity
+                      secondary: "{{ states(entity) }} %"
+                      layout: vertical
+                      fill_container: true
+                      tap_action:
+                        action: more-info
+                      card_mod:
+                        style: |
+                          ha-card {
+                            border: none;
+                          }
+                    - type: custom:mini-graph-card
+                      entities:
+                        - entity: sensor.bedroom_humidity
+                      height: 50
+                      hours_to_show: 24
+                      points_per_hour: 2
+                      line_width: 2
+                      color_thresholds:
+                        - value: 25
+                          color: "#f44336"
+                        - value: 30
+                          color: "#ffc107"
+                        - value: 60
+                          color: "#4caf50"
+                        - value: 70
+                          color: "#ffc107"
+                        - value: 100
+                          color: "#f44336"
+                      gradient: true
+                      show:
+                        labels: false
+                        points: false
+                        name: false
+                        icon: false
+                        state: false
+                      card_mod:
+                        style: |
+                          ha-card {
+                            border: none;
+                          }
+
+              - type: conditional
+                conditions:
+                  - entity: sensor.bedroom_voc
+                    state_not: unavailable
+                  - entity: sensor.bedroom_voc
+                    state_not: unknown
+                card:
+                  type: vertical-stack
+                  cards:
+                    - type: custom:mushroom-template-card
+                      entity: sensor.bedroom_voc
+                      icon: mdi:check-circle
+                      icon_color: >
+                        {% if states(entity) | float > 2000 %}
+                          red
+                        {% elif states(entity) | float > 250 %}
+                          yellow
+                        {% else %}
+                          green
+                        {% endif %}
+                      primary: VOC
+                      secondary: "{{ states(entity) }} ppb"
+                      layout: vertical
+                      fill_container: true
+                      tap_action:
+                        action: more-info
+                      card_mod:
+                        style: |
+                          ha-card {
+                            border: none;
+                          }
+                    - type: custom:mini-graph-card
+                      entities:
+                        - entity: sensor.bedroom_voc
+                      height: 50
+                      hours_to_show: 24
+                      points_per_hour: 2
+                      line_width: 2
+                      color_thresholds:
+                        - value: 250
+                          color: "#4caf50"
+                        - value: 2000
+                          color: "#ffc107"
+                        - value: 9999
+                          color: "#f44336"
+                      gradient: true
+                      show:
+                        labels: false
+                        points: false
+                        name: false
+                        icon: false
+                        state: false
+                      card_mod:
+                        style: |
+                          ha-card {
+                            border: none;
+                          }
+
+      - type: custom:stack-in-card
+        mode: vertical
+        cards:
+          - type: custom:mushroom-title-card
+            title: Kitchen
+          - type: horizontal-stack
+            cards:
+              - type: conditional
+                conditions:
+                  - entity: sensor.kitchen_temperature
+                    state_not: unavailable
+                  - entity: sensor.kitchen_temperature
+                    state_not: unknown
+                card:
+                  type: vertical-stack
+                  cards:
+                    - type: custom:mushroom-template-card
+                      entity: sensor.kitchen_temperature
+                      icon: mdi:thermometer
+                      icon_color: >
+                        {% if states(entity) | float > 80 %}
+                          red
+                        {% elif states(entity) | float > 74 %}
+                          yellow
+                        {% elif states(entity) | float > 66 %}
+                          green
+                        {% else %}
+                          blue
+                        {% endif %}
+                      primary: Temperature
+                      secondary: "{{ states(entity) }} °F"
+                      layout: vertical
+                      fill_container: true
+                      tap_action:
+                        action: more-info
+                      card_mod:
+                        style: |
+                          ha-card {
+                            border: none;
+                          }
+                    - type: custom:mini-graph-card
+                      entities:
+                        - entity: sensor.kitchen_temperature
+                      height: 50
+                      hours_to_show: 24
+                      points_per_hour: 2
+                      line_width: 2
+                      color_thresholds:
+                        - value: 66
+                          color: "#2196f3"
+                        - value: 74
+                          color: "#4caf50"
+                        - value: 80
+                          color: "#ffc107"
+                        - value: 100
+                          color: "#f44336"
+                      gradient: true
+                      show:
+                        labels: false
+                        points: false
+                        name: false
+                        icon: false
+                        state: false
+                      card_mod:
+                        style: |
+                          ha-card {
+                            border: none;
+                          }
+
+              - type: conditional
+                conditions:
+                  - entity: sensor.kitchen_humidity
+                    state_not: unavailable
+                  - entity: sensor.kitchen_humidity
+                    state_not: unknown
+                card:
+                  type: vertical-stack
+                  cards:
+                    - type: custom:mushroom-template-card
+                      entity: sensor.kitchen_humidity
+                      icon: mdi:water-percent
+                      icon_color: >
+                        {% if states(entity) | float > 70 %}
+                          red
+                        {% elif states(entity) | float > 60 %}
+                          yellow
+                        {% elif states(entity) | float > 30 %}
+                          green
+                        {% elif states(entity) | float > 25 %}
+                          yellow
+                        {% else %}
+                          red
+                        {% endif %}
+                      primary: Humidity
+                      secondary: "{{ states(entity) }} %"
+                      layout: vertical
+                      fill_container: true
+                      tap_action:
+                        action: more-info
+                      card_mod:
+                        style: |
+                          ha-card {
+                            border: none;
+                          }
+                    - type: custom:mini-graph-card
+                      entities:
+                        - entity: sensor.kitchen_humidity
+                      height: 50
+                      hours_to_show: 24
+                      points_per_hour: 2
+                      line_width: 2
+                      color_thresholds:
+                        - value: 25
+                          color: "#f44336"
+                        - value: 30
+                          color: "#ffc107"
+                        - value: 60
+                          color: "#4caf50"
+                        - value: 70
+                          color: "#ffc107"
+                        - value: 100
+                          color: "#f44336"
+                      gradient: true
+                      show:
+                        labels: false
+                        points: false
+                        name: false
+                        icon: false
+                        state: false
+                      card_mod:
+                        style: |
+                          ha-card {
+                            border: none;
+                          }
+
+              - type: conditional
+                conditions:
+                  - entity: sensor.kitchen_voc
+                    state_not: unavailable
+                  - entity: sensor.kitchen_voc
+                    state_not: unknown
+                card:
+                  type: vertical-stack
+                  cards:
+                    - type: custom:mushroom-template-card
+                      entity: sensor.kitchen_voc
+                      icon: mdi:check-circle
+                      icon_color: >
+                        {% if states(entity) | float > 2000 %}
+                          red
+                        {% elif states(entity) | float > 250 %}
+                          yellow
+                        {% else %}
+                          green
+                        {% endif %}
+                      primary: VOC
+                      secondary: "{{ states(entity) }} ppb"
+                      layout: vertical
+                      fill_container: true
+                      tap_action:
+                        action: more-info
+                      card_mod:
+                        style: |
+                          ha-card {
+                            border: none;
+                          }
+                    - type: custom:mini-graph-card
+                      entities:
+                        - entity: sensor.kitchen_voc
+                      height: 50
+                      hours_to_show: 24
+                      points_per_hour: 2
+                      line_width: 2
+                      color_thresholds:
+                        - value: 250
+                          color: "#4caf50"
+                        - value: 2000
+                          color: "#ffc107"
+                        - value: 9999
+                          color: "#f44336"
+                      gradient: true
+                      show:
+                        labels: false
+                        points: false
+                        name: false
+                        icon: false
+                        state: false
+                      card_mod:
+                        style: |
+                          ha-card {
+                            border: none;
+                          }
+
+      - type: custom:stack-in-card
+        mode: vertical
+        cards:
+          - type: custom:mushroom-title-card
+            title: Bathroom
+          - type: horizontal-stack
+            cards:
+              - type: conditional
+                conditions:
+                  - entity: sensor.bathroom_temperature
+                    state_not: unavailable
+                  - entity: sensor.bathroom_temperature
+                    state_not: unknown
+                card:
+                  type: vertical-stack
+                  cards:
+                    - type: custom:mushroom-template-card
+                      entity: sensor.bathroom_temperature
+                      icon: mdi:thermometer
+                      icon_color: >
+                        {% if states(entity) | float > 80 %}
+                          red
+                        {% elif states(entity) | float > 74 %}
+                          yellow
+                        {% elif states(entity) | float > 66 %}
+                          green
+                        {% else %}
+                          blue
+                        {% endif %}
+                      primary: Temperature
+                      secondary: "{{ states(entity) }} °F"
+                      layout: vertical
+                      fill_container: true
+                      tap_action:
+                        action: more-info
+                      card_mod:
+                        style: |
+                          ha-card {
+                            border: none;
+                          }
+                    - type: custom:mini-graph-card
+                      entities:
+                        - entity: sensor.bathroom_temperature
+                      height: 50
+                      hours_to_show: 24
+                      points_per_hour: 2
+                      line_width: 2
+                      color_thresholds:
+                        - value: 66
+                          color: "#2196f3"
+                        - value: 74
+                          color: "#4caf50"
+                        - value: 80
+                          color: "#ffc107"
+                        - value: 100
+                          color: "#f44336"
+                      gradient: true
+                      show:
+                        labels: false
+                        points: false
+                        name: false
+                        icon: false
+                        state: false
+                      card_mod:
+                        style: |
+                          ha-card {
+                            border: none;
+                          }
+
+              - type: conditional
+                conditions:
+                  - entity: sensor.bathroom_humidity
+                    state_not: unavailable
+                  - entity: sensor.bathroom_humidity
+                    state_not: unknown
+                card:
+                  type: vertical-stack
+                  cards:
+                    - type: custom:mushroom-template-card
+                      entity: sensor.bathroom_humidity
+                      icon: mdi:water-percent
+                      icon_color: >
+                        {% if states(entity) | float > 70 %}
+                          red
+                        {% elif states(entity) | float > 60 %}
+                          yellow
+                        {% elif states(entity) | float > 30 %}
+                          green
+                        {% elif states(entity) | float > 25 %}
+                          yellow
+                        {% else %}
+                          red
+                        {% endif %}
+                      primary: Humidity
+                      secondary: "{{ states(entity) }} %"
+                      layout: vertical
+                      fill_container: true
+                      tap_action:
+                        action: more-info
+                      card_mod:
+                        style: |
+                          ha-card {
+                            border: none;
+                          }
+                    - type: custom:mini-graph-card
+                      entities:
+                        - entity: sensor.bathroom_humidity
+                      height: 50
+                      hours_to_show: 24
+                      points_per_hour: 2
+                      line_width: 2
+                      color_thresholds:
+                        - value: 25
+                          color: "#f44336"
+                        - value: 30
+                          color: "#ffc107"
+                        - value: 60
+                          color: "#4caf50"
+                        - value: 70
+                          color: "#ffc107"
+                        - value: 100
+                          color: "#f44336"
+                      gradient: true
+                      show:
+                        labels: false
+                        points: false
+                        name: false
+                        icon: false
+                        state: false
+                      card_mod:
+                        style: |
+                          ha-card {
+                            border: none;
+                          }
+
+              - type: conditional
+                conditions:
+                  - entity: sensor.bathroom_voc
+                    state_not: unavailable
+                  - entity: sensor.bathroom_voc
+                    state_not: unknown
+                card:
+                  type: vertical-stack
+                  cards:
+                    - type: custom:mushroom-template-card
+                      entity: sensor.bathroom_voc
+                      icon: mdi:check-circle
+                      icon_color: >
+                        {% if states(entity) | float > 2000 %}
+                          red
+                        {% elif states(entity) | float > 250 %}
+                          yellow
+                        {% else %}
+                          green
+                        {% endif %}
+                      primary: VOC
+                      secondary: "{{ states(entity) }} ppb"
+                      layout: vertical
+                      fill_container: true
+                      tap_action:
+                        action: more-info
+                      card_mod:
+                        style: |
+                          ha-card {
+                            border: none;
+                          }
+                    - type: custom:mini-graph-card
+                      entities:
+                        - entity: sensor.bathroom_voc
+                      height: 50
+                      hours_to_show: 24
+                      points_per_hour: 2
+                      line_width: 2
+                      color_thresholds:
+                        - value: 250
+                          color: "#4caf50"
+                        - value: 2000
+                          color: "#ffc107"
+                        - value: 9999
+                          color: "#f44336"
+                      gradient: true
+                      show:
+                        labels: false
+                        points: false
+                        name: false
+                        icon: false
+                        state: false
+                      card_mod:
+                        style: |
+                          ha-card {
+                            border: none;
+                          }
+
+      - type: custom:stack-in-card
+        mode: vertical
+        cards:
+          - type: custom:mushroom-title-card
+            title: Bathroom 2
+          - type: horizontal-stack
+            cards:
+              - type: conditional
+                conditions:
+                  - entity: sensor.bedroom_air_2_temperature
+                    state_not: unavailable
+                  - entity: sensor.bedroom_air_2_temperature
+                    state_not: unknown
+                card:
+                  type: vertical-stack
+                  cards:
+                    - type: custom:mushroom-template-card
+                      entity: sensor.bedroom_air_2_temperature
+                      icon: mdi:thermometer
+                      icon_color: >
+                        {% if states(entity) | float > 80 %}
+                          red
+                        {% elif states(entity) | float > 74 %}
+                          yellow
+                        {% elif states(entity) | float > 66 %}
+                          green
+                        {% else %}
+                          blue
+                        {% endif %}
+                      primary: Temperature
+                      secondary: "{{ states(entity) }} °F"
+                      layout: vertical
+                      fill_container: true
+                      tap_action:
+                        action: more-info
+                      card_mod:
+                        style: |
+                          ha-card {
+                            border: none;
+                          }
+                    - type: custom:mini-graph-card
+                      entities:
+                        - entity: sensor.bedroom_air_2_temperature
+                      height: 50
+                      hours_to_show: 24
+                      points_per_hour: 2
+                      line_width: 2
+                      color_thresholds:
+                        - value: 66
+                          color: "#2196f3"
+                        - value: 74
+                          color: "#4caf50"
+                        - value: 80
+                          color: "#ffc107"
+                        - value: 100
+                          color: "#f44336"
+                      gradient: true
+                      show:
+                        labels: false
+                        points: false
+                        name: false
+                        icon: false
+                        state: false
+                      card_mod:
+                        style: |
+                          ha-card {
+                            border: none;
+                          }
+
+              - type: conditional
+                conditions:
+                  - entity: sensor.bedroom_air_2_humidity
+                    state_not: unavailable
+                  - entity: sensor.bedroom_air_2_humidity
+                    state_not: unknown
+                card:
+                  type: vertical-stack
+                  cards:
+                    - type: custom:mushroom-template-card
+                      entity: sensor.bedroom_air_2_humidity
+                      icon: mdi:water-percent
+                      icon_color: >
+                        {% if states(entity) | float > 70 %}
+                          red
+                        {% elif states(entity) | float > 60 %}
+                          yellow
+                        {% elif states(entity) | float > 30 %}
+                          green
+                        {% elif states(entity) | float > 25 %}
+                          yellow
+                        {% else %}
+                          red
+                        {% endif %}
+                      primary: Humidity
+                      secondary: "{{ states(entity) }} %"
+                      layout: vertical
+                      fill_container: true
+                      tap_action:
+                        action: more-info
+                      card_mod:
+                        style: |
+                          ha-card {
+                            border: none;
+                          }
+                    - type: custom:mini-graph-card
+                      entities:
+                        - entity: sensor.bedroom_air_2_humidity
+                      height: 50
+                      hours_to_show: 24
+                      points_per_hour: 2
+                      line_width: 2
+                      color_thresholds:
+                        - value: 25
+                          color: "#f44336"
+                        - value: 30
+                          color: "#ffc107"
+                        - value: 60
+                          color: "#4caf50"
+                        - value: 70
+                          color: "#ffc107"
+                        - value: 100
+                          color: "#f44336"
+                      gradient: true
+                      show:
+                        labels: false
+                        points: false
+                        name: false
+                        icon: false
+                        state: false
+                      card_mod:
+                        style: |
+                          ha-card {
+                            border: none;
+                          }
+
+              - type: conditional
+                conditions:
+                  - entity: sensor.bedroom_air_2_voc
+                    state_not: unavailable
+                  - entity: sensor.bedroom_air_2_voc
+                    state_not: unknown
+                card:
+                  type: vertical-stack
+                  cards:
+                    - type: custom:mushroom-template-card
+                      entity: sensor.bedroom_air_2_voc
+                      icon: mdi:check-circle
+                      icon_color: >
+                        {% if states(entity) | float > 2000 %}
+                          red
+                        {% elif states(entity) | float > 250 %}
+                          yellow
+                        {% else %}
+                          green
+                        {% endif %}
+                      primary: VOC
+                      secondary: "{{ states(entity) }} ppb"
+                      layout: vertical
+                      fill_container: true
+                      tap_action:
+                        action: more-info
+                      card_mod:
+                        style: |
+                          ha-card {
+                            border: none;
+                          }
+                    - type: custom:mini-graph-card
+                      entities:
+                        - entity: sensor.bedroom_air_2_voc
+                      height: 50
+                      hours_to_show: 24
+                      points_per_hour: 2
+                      line_width: 2
+                      color_thresholds:
+                        - value: 250
+                          color: "#4caf50"
+                        - value: 2000
+                          color: "#ffc107"
+                        - value: 9999
+                          color: "#f44336"
+                      gradient: true
+                      show:
+                        labels: false
+                        points: false
+                        name: false
+                        icon: false
+                        state: false
+                      card_mod:
+                        style: |
+                          ha-card {
+                            border: none;
+                          }
+
+      - type: custom:stack-in-card
+        mode: vertical
+        cards:
+          - type: custom:mushroom-title-card
+            title: Kayla's Office
+          - type: horizontal-stack
+            cards:
+              - type: conditional
+                conditions:
+                  - entity: sensor.kayla_office_air_temperature
+                    state_not: unavailable
+                  - entity: sensor.kayla_office_air_temperature
+                    state_not: unknown
+                card:
+                  type: vertical-stack
+                  cards:
+                    - type: custom:mushroom-template-card
+                      entity: sensor.kayla_office_air_temperature
+                      icon: mdi:thermometer
+                      icon_color: >
+                        {% if states(entity) | float > 80 %}
+                          red
+                        {% elif states(entity) | float > 74 %}
+                          yellow
+                        {% elif states(entity) | float > 66 %}
+                          green
+                        {% else %}
+                          blue
+                        {% endif %}
+                      primary: Temperature
+                      secondary: "{{ states(entity) }} °F"
+                      layout: vertical
+                      fill_container: true
+                      tap_action:
+                        action: more-info
+                      card_mod:
+                        style: |
+                          ha-card {
+                            border: none;
+                          }
+                    - type: custom:mini-graph-card
+                      entities:
+                        - entity: sensor.kayla_office_air_temperature
+                      height: 50
+                      hours_to_show: 24
+                      points_per_hour: 2
+                      line_width: 2
+                      color_thresholds:
+                        - value: 66
+                          color: "#2196f3"
+                        - value: 74
+                          color: "#4caf50"
+                        - value: 80
+                          color: "#ffc107"
+                        - value: 100
+                          color: "#f44336"
+                      gradient: true
+                      show:
+                        labels: false
+                        points: false
+                        name: false
+                        icon: false
+                        state: false
+                      card_mod:
+                        style: |
+                          ha-card {
+                            border: none;
+                          }
+
+              - type: conditional
+                conditions:
+                  - entity: sensor.kayla_office_air_humidity
+                    state_not: unavailable
+                  - entity: sensor.kayla_office_air_humidity
+                    state_not: unknown
+                card:
+                  type: vertical-stack
+                  cards:
+                    - type: custom:mushroom-template-card
+                      entity: sensor.kayla_office_air_humidity
+                      icon: mdi:water-percent
+                      icon_color: >
+                        {% if states(entity) | float > 70 %}
+                          red
+                        {% elif states(entity) | float > 60 %}
+                          yellow
+                        {% elif states(entity) | float > 30 %}
+                          green
+                        {% elif states(entity) | float > 25 %}
+                          yellow
+                        {% else %}
+                          red
+                        {% endif %}
+                      primary: Humidity
+                      secondary: "{{ states(entity) }} %"
+                      layout: vertical
+                      fill_container: true
+                      tap_action:
+                        action: more-info
+                      card_mod:
+                        style: |
+                          ha-card {
+                            border: none;
+                          }
+                    - type: custom:mini-graph-card
+                      entities:
+                        - entity: sensor.kayla_office_air_humidity
+                      height: 50
+                      hours_to_show: 24
+                      points_per_hour: 2
+                      line_width: 2
+                      color_thresholds:
+                        - value: 25
+                          color: "#f44336"
+                        - value: 30
+                          color: "#ffc107"
+                        - value: 60
+                          color: "#4caf50"
+                        - value: 70
+                          color: "#ffc107"
+                        - value: 100
+                          color: "#f44336"
+                      gradient: true
+                      show:
+                        labels: false
+                        points: false
+                        name: false
+                        icon: false
+                        state: false
+                      card_mod:
+                        style: |
+                          ha-card {
+                            border: none;
+                          }
+
+              - type: conditional
+                conditions:
+                  - entity: sensor.kayla_office_air_vocs
+                    state_not: unavailable
+                  - entity: sensor.kayla_office_air_vocs
+                    state_not: unknown
+                card:
+                  type: vertical-stack
+                  cards:
+                    - type: custom:mushroom-template-card
+                      entity: sensor.kayla_office_air_vocs
+                      icon: mdi:check-circle
+                      icon_color: >
+                        {% if states(entity) | float > 2000 %}
+                          red
+                        {% elif states(entity) | float > 250 %}
+                          yellow
+                        {% else %}
+                          green
+                        {% endif %}
+                      primary: VOC
+                      secondary: "{{ states(entity) }} ppb"
+                      layout: vertical
+                      fill_container: true
+                      tap_action:
+                        action: more-info
+                      card_mod:
+                        style: |
+                          ha-card {
+                            border: none;
+                          }
+                    - type: custom:mini-graph-card
+                      entities:
+                        - entity: sensor.kayla_office_air_vocs
+                      height: 50
+                      hours_to_show: 24
+                      points_per_hour: 2
+                      line_width: 2
+                      color_thresholds:
+                        - value: 250
+                          color: "#4caf50"
+                        - value: 2000
+                          color: "#ffc107"
+                        - value: 9999
+                          color: "#f44336"
+                      gradient: true
+                      show:
+                        labels: false
+                        points: false
+                        name: false
+                        icon: false
+                        state: false
+                      card_mod:
+                        style: |
+                          ha-card {
+                            border: none;
+                          }
+
+      - type: custom:stack-in-card
+        mode: vertical
+        cards:
+          - type: custom:mushroom-title-card
+            title: Eric's Office
+          - type: horizontal-stack
+            cards:
+              - type: conditional
+                conditions:
+                  - entity: sensor.eric_office_air_temperature
+                    state_not: unavailable
+                  - entity: sensor.eric_office_air_temperature
+                    state_not: unknown
+                card:
+                  type: vertical-stack
+                  cards:
+                    - type: custom:mushroom-template-card
+                      entity: sensor.eric_office_air_temperature
+                      icon: mdi:thermometer
+                      icon_color: >
+                        {% if states(entity) | float > 80 %}
+                          red
+                        {% elif states(entity) | float > 74 %}
+                          yellow
+                        {% elif states(entity) | float > 66 %}
+                          green
+                        {% else %}
+                          blue
+                        {% endif %}
+                      primary: Temperature
+                      secondary: "{{ states(entity) }} °F"
+                      layout: vertical
+                      fill_container: true
+                      tap_action:
+                        action: more-info
+                      card_mod:
+                        style: |
+                          ha-card {
+                            border: none;
+                          }
+                    - type: custom:mini-graph-card
+                      entities:
+                        - entity: sensor.eric_office_air_temperature
+                      height: 50
+                      hours_to_show: 24
+                      points_per_hour: 2
+                      line_width: 2
+                      color_thresholds:
+                        - value: 66
+                          color: "#2196f3"
+                        - value: 74
+                          color: "#4caf50"
+                        - value: 80
+                          color: "#ffc107"
+                        - value: 100
+                          color: "#f44336"
+                      gradient: true
+                      show:
+                        labels: false
+                        points: false
+                        name: false
+                        icon: false
+                        state: false
+                      card_mod:
+                        style: |
+                          ha-card {
+                            border: none;
+                          }
+
+              - type: conditional
+                conditions:
+                  - entity: sensor.eric_office_air_humidity
+                    state_not: unavailable
+                  - entity: sensor.eric_office_air_humidity
+                    state_not: unknown
+                card:
+                  type: vertical-stack
+                  cards:
+                    - type: custom:mushroom-template-card
+                      entity: sensor.eric_office_air_humidity
+                      icon: mdi:water-percent
+                      icon_color: >
+                        {% if states(entity) | float > 70 %}
+                          red
+                        {% elif states(entity) | float > 60 %}
+                          yellow
+                        {% elif states(entity) | float > 30 %}
+                          green
+                        {% elif states(entity) | float > 25 %}
+                          yellow
+                        {% else %}
+                          red
+                        {% endif %}
+                      primary: Humidity
+                      secondary: "{{ states(entity) }} %"
+                      layout: vertical
+                      fill_container: true
+                      tap_action:
+                        action: more-info
+                      card_mod:
+                        style: |
+                          ha-card {
+                            border: none;
+                          }
+                    - type: custom:mini-graph-card
+                      entities:
+                        - entity: sensor.eric_office_air_humidity
+                      height: 50
+                      hours_to_show: 24
+                      points_per_hour: 2
+                      line_width: 2
+                      color_thresholds:
+                        - value: 25
+                          color: "#f44336"
+                        - value: 30
+                          color: "#ffc107"
+                        - value: 60
+                          color: "#4caf50"
+                        - value: 70
+                          color: "#ffc107"
+                        - value: 100
+                          color: "#f44336"
+                      gradient: true
+                      show:
+                        labels: false
+                        points: false
+                        name: false
+                        icon: false
+                        state: false
+                      card_mod:
+                        style: |
+                          ha-card {
+                            border: none;
+                          }
+
+              - type: conditional
+                conditions:
+                  - entity: sensor.eric_office_air_vocs
+                    state_not: unavailable
+                  - entity: sensor.eric_office_air_vocs
+                    state_not: unknown
+                card:
+                  type: vertical-stack
+                  cards:
+                    - type: custom:mushroom-template-card
+                      entity: sensor.eric_office_air_vocs
+                      icon: mdi:check-circle
+                      icon_color: >
+                        {% if states(entity) | float > 2000 %}
+                          red
+                        {% elif states(entity) | float > 250 %}
+                          yellow
+                        {% else %}
+                          green
+                        {% endif %}
+                      primary: VOC
+                      secondary: "{{ states(entity) }} ppb"
+                      layout: vertical
+                      fill_container: true
+                      tap_action:
+                        action: more-info
+                      card_mod:
+                        style: |
+                          ha-card {
+                            border: none;
+                          }
+                    - type: custom:mini-graph-card
+                      entities:
+                        - entity: sensor.eric_office_air_vocs
+                      height: 50
+                      hours_to_show: 24
+                      points_per_hour: 2
+                      line_width: 2
+                      color_thresholds:
+                        - value: 250
+                          color: "#4caf50"
+                        - value: 2000
+                          color: "#ffc107"
+                        - value: 9999
+                          color: "#f44336"
+                      gradient: true
+                      show:
+                        labels: false
+                        points: false
+                        name: false
+                        icon: false
+                        state: false
+                      card_mod:
+                        style: |
+                          ha-card {
+                            border: none;
+                          }

@@ -1,1 +1,6 @@
-- Bugfix: dashboard yaml indenting
+- Feature: Renamed dashboard from "Home" to "Home Dashboard"
+- Feature: Added comprehensive room-based dashboard layout
+- Feature: Added detailed sensor cards for temperature, humidity, and VOC
+- Feature: Implemented custom styling and thresholds for sensor values
+- Feature: Added mini-graph cards for historical sensor data visualization
+- Enhancement: Improved overall dashboard organization and visual presentation
