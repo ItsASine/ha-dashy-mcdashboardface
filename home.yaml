@@ -42,8 +42,10 @@ views:
                     red
                   {% elif states(entity) | float > 74 %}
                     yellow
-                  {% else %}
+                  {% elif states(entity) | float > 66 %}
                     green
+                  {% else %}
+                    blue
                   {% endif %}
                 primary: Temperature
                 secondary: "{{ states(entity) }} °F"
@@ -66,7 +68,7 @@ views:
                 entity: sensor.living_room_voc
                 icon: mdi:check-circle
                 icon_color: >
-                  {% if states(entity) | float > 500 %}
+                  {% if states(entity) | float > 2000 %}
                     red
                   {% elif states(entity) | float > 250 %}
                     yellow
@@ -105,8 +107,10 @@ views:
                     red
                   {% elif states(entity) | float > 74 %}
                     yellow
-                  {% else %}
+                  {% elif states(entity) | float > 66 %}
                     green
+                  {% else %}
+                    blue
                   {% endif %}
                 primary: Temperature
                 secondary: "{{ states(entity) }} °F"
@@ -128,7 +132,7 @@ views:
                 entity: sensor.living_room_air_2_voc
                 icon: mdi:check-circle
                 icon_color: >
-                  {% if states(entity) | float > 500 %}
+                  {% if states(entity) | float > 2000 %}
                     red
                   {% elif states(entity) | float > 250 %}
                     yellow
@@ -164,8 +168,10 @@ views:
                     red
                   {% elif states(entity) | float > 74 %}
                     yellow
-                  {% else %}
+                  {% elif states(entity) | float > 66 %}
                     green
+                  {% else %}
+                    blue
                   {% endif %}
                 primary: Temperature
                 secondary: "{{ states(entity) }} °F"
@@ -187,7 +193,7 @@ views:
                 entity: sensor.bedroom_voc
                 icon: mdi:check-circle
                 icon_color: >
-                  {% if states(entity) | float > 500 %}
+                  {% if states(entity) | float > 2000 %}
                     red
                   {% elif states(entity) | float > 250 %}
                     yellow
@@ -223,8 +229,10 @@ views:
                     red
                   {% elif states(entity) | float > 74 %}
                     yellow
-                  {% else %}
+                  {% elif states(entity) | float > 66 %}
                     green
+                  {% else %}
+                    blue
                   {% endif %}
                 primary: Temperature
                 secondary: "{{ states(entity) }} °F"
@@ -246,7 +254,7 @@ views:
                 entity: sensor.kitchen_voc
                 icon: mdi:check-circle
                 icon_color: >
-                  {% if states(entity) | float > 500 %}
+                  {% if states(entity) | float > 2000 %}
                     red
                   {% elif states(entity) | float > 250 %}
                     yellow
@@ -285,8 +293,10 @@ views:
                     red
                   {% elif states(entity) | float > 74 %}
                     yellow
-                  {% else %}
+                  {% elif states(entity) | float > 66 %}
                     green
+                  {% else %}
+                    blue
                   {% endif %}
                 primary: Temperature
                 secondary: "{{ states(entity) }} °F"
@@ -308,7 +318,7 @@ views:
                 entity: sensor.bathroom_voc
                 icon: mdi:check-circle
                 icon_color: >
-                  {% if states(entity) | float > 500 %}
+                  {% if states(entity) | float > 2000 %}
                     red
                   {% elif states(entity) | float > 250 %}
                     yellow
@@ -344,8 +354,10 @@ views:
                     red
                   {% elif states(entity) | float > 74 %}
                     yellow
-                  {% else %}
+                  {% elif states(entity) | float > 66 %}
                     green
+                  {% else %}
+                    blue
                   {% endif %}
                 primary: Temperature
                 secondary: "{{ states(entity) }} °F"
@@ -367,7 +379,7 @@ views:
                 entity: sensor.bedroom_air_2_voc
                 icon: mdi:check-circle
                 icon_color: >
-                  {% if states(entity) | float > 500 %}
+                  {% if states(entity) | float > 2000 %}
                     red
                   {% elif states(entity) | float > 250 %}
                     yellow
@@ -403,8 +415,10 @@ views:
                     red
                   {% elif states(entity) | float > 74 %}
                     yellow
-                  {% else %}
+                  {% elif states(entity) | float > 66 %}
                     green
+                  {% else %}
+                    blue
                   {% endif %}
                 primary: Temperature
                 secondary: "{{ states(entity) }} °F"
@@ -426,7 +440,7 @@ views:
                 entity: sensor.kayla_office_air_vocs
                 icon: mdi:check-circle
                 icon_color: >
-                  {% if states(entity) | float > 500 %}
+                  {% if states(entity) | float > 2000 %}
                     red
                   {% elif states(entity) | float > 250 %}
                     yellow
@@ -462,8 +476,10 @@ views:
                     red
                   {% elif states(entity) | float > 74 %}
                     yellow
-                  {% else %}
+                  {% elif states(entity) | float > 66 %}
                     green
+                  {% else %}
+                    blue
                   {% endif %}
                 primary: Temperature
                 secondary: "{{ states(entity) }} °F"
@@ -485,7 +501,7 @@ views:
                 entity: sensor.eric_office_air_vocs
                 icon: mdi:check-circle
                 icon_color: >
-                  {% if states(entity) | float > 500 %}
+                  {% if states(entity) | float > 2000 %}
                     red
                   {% elif states(entity) | float > 250 %}
                     yellow
