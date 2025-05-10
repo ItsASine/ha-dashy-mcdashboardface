@@ -20,13 +20,30 @@ views:
                 - domain: person
                   options:
                     type: custom:mushroom-person-card
-                    layout: horizontal
+                    layout: vertical
                     fill_container: true
                     primary_info: name
                     secondary_info: state
                     icon_type: entity-picture
-                    tap_action:
-                      action: more-info
+                    icon_size: large
+                    alignment: center
+                    card_mod:
+                      style: |
+                        ha-card {
+                          border: none;
+                          --mush-icon-size: 64px;  /* Makes person picture bigger */
+                          padding: 12px;
+                          width: 100%;
+                        }
+                        div.content {
+                          text-align: center;
+                          width: 100%;
+                        }
+                        /* Make text a bit larger */
+                        div.primary {
+                          font-size: 1.2em;
+                          font-weight: 500;
+                        }
 
       - type: custom:stack-in-card
         mode: vertical
