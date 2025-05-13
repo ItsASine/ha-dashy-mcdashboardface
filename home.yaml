@@ -48,8 +48,17 @@ views:
       - type: custom:stack-in-card
         mode: vertical
         cards:
-          - type: custom:mushroom-title-card
-            title: Living Room
+          - type: custom:mushroom-template-card
+            primary: Living Room
+            icon: mdi:sofa
+            tap_action:
+              action: navigate
+              navigation_path: living-room
+            card_mod:
+              style: |
+                ha-card {
+                  border: none
+                }
           - type: horizontal-stack
             cards:
               - type: conditional
@@ -241,8 +250,17 @@ views:
       - type: custom:stack-in-card
         mode: vertical
         cards:
-          - type: custom:mushroom-title-card
-            title: Dining Room
+          - type: custom:mushroom-template-card
+            primary: Dining Room
+            icon: mdi:table-furniture
+            tap_action:
+              action: navigate
+              navigation_path: dining-room
+            card_mod:
+              style: |
+                ha-card {
+                  border: none
+                }
           - type: horizontal-stack
             cards:
               - type: conditional
@@ -434,8 +452,17 @@ views:
       - type: custom:stack-in-card
         mode: vertical
         cards:
-          - type: custom:mushroom-title-card
-            title: Bedroom
+          - type: custom:mushroom-template-card
+            primary: Bedroom
+            icon: mdi:bed
+            tap_action:
+              action: navigate
+              navigation_path: bedroom
+            card_mod:
+              style: |
+                ha-card {
+                  border: none
+                }
           - type: horizontal-stack
             cards:
               - type: conditional
@@ -627,8 +654,17 @@ views:
       - type: custom:stack-in-card
         mode: vertical
         cards:
-          - type: custom:mushroom-title-card
-            title: Kitchen
+          - type: custom:mushroom-template-card
+            primary: Kitchen
+            icon: mdi:stove
+            tap_action:
+              action: navigate
+              navigation_path: kitchen
+            card_mod:
+              style: |
+                ha-card {
+                  border: none
+                }
           - type: horizontal-stack
             cards:
               - type: conditional
@@ -820,8 +856,17 @@ views:
       - type: custom:stack-in-card
         mode: vertical
         cards:
-          - type: custom:mushroom-title-card
-            title: Bathroom
+          - type: custom:mushroom-template-card
+            primary: Bathroom
+            icon: mdi:bathtub
+            tap_action:
+              action: navigate
+              navigation_path: bathroom
+            card_mod:
+              style: |
+                ha-card {
+                  border: none
+                }
           - type: horizontal-stack
             cards:
               - type: conditional
@@ -1013,8 +1058,17 @@ views:
       - type: custom:stack-in-card
         mode: vertical
         cards:
-          - type: custom:mushroom-title-card
-            title: Bathroom 2
+          - type: custom:mushroom-template-card
+            primary: Bathroom 2
+            icon: mdi:shower-head
+            tap_action:
+              action: navigate
+              navigation_path: bathroom-2
+            card_mod:
+              style: |
+                ha-card {
+                  border: none
+                }
           - type: horizontal-stack
             cards:
               - type: conditional
@@ -1206,8 +1260,17 @@ views:
       - type: custom:stack-in-card
         mode: vertical
         cards:
-          - type: custom:mushroom-title-card
-            title: Kayla's Office
+          - type: custom:mushroom-template-card
+            primary: Kayla's Office
+            icon: mdi:laptop
+            tap_action:
+              action: navigate
+              navigation_path: kayla-office
+            card_mod:
+              style: |
+                ha-card {
+                  border: none
+                }
           - type: horizontal-stack
             cards:
               - type: conditional
@@ -1399,8 +1462,17 @@ views:
       - type: custom:stack-in-card
         mode: vertical
         cards:
-          - type: custom:mushroom-title-card
-            title: Eric's Office
+          - type: custom:mushroom-template-card
+            primary: Eric's Office
+            icon: mdi:desktop-tower-monitor
+            tap_action:
+              action: navigate
+              navigation_path: eric-office
+            card_mod:
+              style: |
+                ha-card {
+                  border: none
+                }
           - type: horizontal-stack
             cards:
               - type: conditional
@@ -1589,14 +1661,92 @@ views:
                             border: none;
                           }
 
-#  - title: Living Room
-#    path: living-room
-#    type: sidebar
-#    cards:
-#      - type: custom:auto-entities
-#        card:
-#          type: entities
-#          title: Living Room Devices
-#        filter:
-#          include:
-#            - area: living_room_new
+  - title: Living Room
+    path: living-room
+    type: sidebar
+    cards:
+      - type: custom:auto-entities
+        card:
+          type: entities
+          title: Living Room Devices
+        filter:
+          include:
+            - area: living_room_new
+            - area: living_room_lights
+  - title: Dining Room
+    path: dining-room
+    type: sidebar
+    cards:
+      - type: custom:auto-entities
+        card:
+          type: entities
+          title: Dining Room Devices
+        filter:
+          include:
+            - area: dining_room_new
+  - title: Bedroom
+    path: bedroom
+    type: sidebar
+    cards:
+      - type: custom:auto-entities
+        card:
+          type: entities
+          title: Bedroom Devices
+        filter:
+          include:
+            - area: bedroom_new
+  - title: Kitchen
+    path: kitchen
+    type: sidebar
+    cards:
+      - type: custom:auto-entities
+        card:
+          type: entities
+          title: Kitchen Devices
+        filter:
+          include:
+            - area: kitchen_new
+  - title: Bathroom
+    path: bathroom
+    type: sidebar
+    cards:
+      - type: custom:auto-entities
+        card:
+          type: entities
+          title: Bathroom Devices
+        filter:
+          include:
+            - area: bathroom_new
+  - title: Bathroom 2
+    path: bathroom-2
+    type: sidebar
+    cards:
+      - type: custom:auto-entities
+        card:
+          type: entities
+          title: Bathroom 2 Devices
+        filter:
+          include:
+            - area: bathroom_new_2
+  - title: Kayla's Office
+    path: kayla-office
+    type: sidebar
+    cards:
+      - type: custom:auto-entities
+        card:
+          type: entities
+          title: Kayla's Office Devices
+        filter:
+          include:
+            - area: kayla_s_office_new
+  - title: Eric's Office
+    path: eric-office
+    type: sidebar
+    cards:
+      - type: custom:auto-entities
+        card:
+          type: entities
+          title: Eric's Office Devices
+        filter:
+          include:
+            - area: eric_s_office_new
