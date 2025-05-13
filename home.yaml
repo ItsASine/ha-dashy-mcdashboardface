@@ -93,13 +93,13 @@ views:
                       points_per_hour: 2
                       line_width: 2
                       color_thresholds:
-                        - value: 66
+                        - value: 0
                           color: "#2196f3"
-                        - value: 74
+                        - value: 66
                           color: "#4caf50"
-                        - value: 80
+                        - value: 74
                           color: "#ffc107"
-                        - value: 100
+                        - value: 80
                           color: "#f44336"
                       gradient: true
                       show:
@@ -157,15 +157,15 @@ views:
                       points_per_hour: 2
                       line_width: 2
                       color_thresholds:
-                        - value: 25
+                        - value: 0
                           color: "#f44336"
+                        - value: 25
+                          color: "#ffc107"
                         - value: 30
-                          color: "#ffc107"
-                        - value: 60
                           color: "#4caf50"
-                        - value: 70
+                        - value: 60
                           color: "#ffc107"
-                        - value: 100
+                        - value: 70
                           color: "#f44336"
                       gradient: true
                       show:
@@ -219,11 +219,11 @@ views:
                       points_per_hour: 2
                       line_width: 2
                       color_thresholds:
-                        - value: 250
+                        - value: 0
                           color: "#4caf50"
-                        - value: 2000
+                        - value: 250
                           color: "#ffc107"
-                        - value: 9999
+                        - value: 2000
                           color: "#f44336"
                       gradient: true
                       show:
@@ -286,13 +286,13 @@ views:
                       points_per_hour: 2
                       line_width: 2
                       color_thresholds:
-                        - value: 66
+                        - value: 0
                           color: "#2196f3"
-                        - value: 74
+                        - value: 66
                           color: "#4caf50"
-                        - value: 80
+                        - value: 74
                           color: "#ffc107"
-                        - value: 100
+                        - value: 80
                           color: "#f44336"
                       gradient: true
                       show:
@@ -350,15 +350,15 @@ views:
                       points_per_hour: 2
                       line_width: 2
                       color_thresholds:
-                        - value: 25
+                        - value: 0
                           color: "#f44336"
+                        - value: 25
+                          color: "#ffc107"
                         - value: 30
-                          color: "#ffc107"
-                        - value: 60
                           color: "#4caf50"
-                        - value: 70
+                        - value: 60
                           color: "#ffc107"
-                        - value: 100
+                        - value: 70
                           color: "#f44336"
                       gradient: true
                       show:
@@ -412,11 +412,11 @@ views:
                       points_per_hour: 2
                       line_width: 2
                       color_thresholds:
-                        - value: 250
+                        - value: 0
                           color: "#4caf50"
-                        - value: 2000
+                        - value: 250
                           color: "#ffc107"
-                        - value: 9999
+                        - value: 2000
                           color: "#f44336"
                       gradient: true
                       show:
@@ -479,13 +479,13 @@ views:
                       points_per_hour: 2
                       line_width: 2
                       color_thresholds:
-                        - value: 66
+                        - value: 0
                           color: "#2196f3"
-                        - value: 74
+                        - value: 66
                           color: "#4caf50"
-                        - value: 80
+                        - value: 74
                           color: "#ffc107"
-                        - value: 100
+                        - value: 80
                           color: "#f44336"
                       gradient: true
                       show:
@@ -543,15 +543,15 @@ views:
                       points_per_hour: 2
                       line_width: 2
                       color_thresholds:
-                        - value: 25
+                        - value: 0
                           color: "#f44336"
+                        - value: 25
+                          color: "#ffc107"
                         - value: 30
-                          color: "#ffc107"
-                        - value: 60
                           color: "#4caf50"
-                        - value: 70
+                        - value: 60
                           color: "#ffc107"
-                        - value: 100
+                        - value: 70
                           color: "#f44336"
                       gradient: true
                       show:
@@ -605,11 +605,11 @@ views:
                       points_per_hour: 2
                       line_width: 2
                       color_thresholds:
-                        - value: 250
+                        - value: 0
                           color: "#4caf50"
-                        - value: 2000
+                        - value: 250
                           color: "#ffc107"
-                        - value: 9999
+                        - value: 2000
                           color: "#f44336"
                       gradient: true
                       show:
@@ -672,13 +672,13 @@ views:
                       points_per_hour: 2
                       line_width: 2
                       color_thresholds:
-                        - value: 66
+                        - value: 0
                           color: "#2196f3"
-                        - value: 74
+                        - value: 66
                           color: "#4caf50"
-                        - value: 80
+                        - value: 74
                           color: "#ffc107"
-                        - value: 100
+                        - value: 80
                           color: "#f44336"
                       gradient: true
                       show:
@@ -736,15 +736,15 @@ views:
                       points_per_hour: 2
                       line_width: 2
                       color_thresholds:
-                        - value: 25
+                        - value: 0
                           color: "#f44336"
+                        - value: 25
+                          color: "#ffc107"
                         - value: 30
-                          color: "#ffc107"
-                        - value: 60
                           color: "#4caf50"
-                        - value: 70
+                        - value: 60
                           color: "#ffc107"
-                        - value: 100
+                        - value: 70
                           color: "#f44336"
                       gradient: true
                       show:
@@ -798,11 +798,11 @@ views:
                       points_per_hour: 2
                       line_width: 2
                       color_thresholds:
-                        - value: 250
+                        - value: 0
                           color: "#4caf50"
-                        - value: 2000
+                        - value: 250
                           color: "#ffc107"
-                        - value: 9999
+                        - value: 2000
                           color: "#f44336"
                       gradient: true
                       show:
@@ -865,13 +865,13 @@ views:
                       points_per_hour: 2
                       line_width: 2
                       color_thresholds:
-                        - value: 66
+                        - value: 0
                           color: "#2196f3"
-                        - value: 74
+                        - value: 66
                           color: "#4caf50"
-                        - value: 80
+                        - value: 74
                           color: "#ffc107"
-                        - value: 100
+                        - value: 80
                           color: "#f44336"
                       gradient: true
                       show:
@@ -929,15 +929,15 @@ views:
                       points_per_hour: 2
                       line_width: 2
                       color_thresholds:
-                        - value: 25
+                        - value: 0
                           color: "#f44336"
+                        - value: 25
+                          color: "#ffc107"
                         - value: 30
-                          color: "#ffc107"
-                        - value: 60
                           color: "#4caf50"
-                        - value: 70
+                        - value: 60
                           color: "#ffc107"
-                        - value: 100
+                        - value: 70
                           color: "#f44336"
                       gradient: true
                       show:
@@ -991,11 +991,11 @@ views:
                       points_per_hour: 2
                       line_width: 2
                       color_thresholds:
-                        - value: 250
+                        - value: 0
                           color: "#4caf50"
-                        - value: 2000
+                        - value: 250
                           color: "#ffc107"
-                        - value: 9999
+                        - value: 2000
                           color: "#f44336"
                       gradient: true
                       show:
@@ -1058,13 +1058,13 @@ views:
                       points_per_hour: 2
                       line_width: 2
                       color_thresholds:
-                        - value: 66
+                        - value: 0
                           color: "#2196f3"
-                        - value: 74
+                        - value: 66
                           color: "#4caf50"
-                        - value: 80
+                        - value: 74
                           color: "#ffc107"
-                        - value: 100
+                        - value: 80
                           color: "#f44336"
                       gradient: true
                       show:
@@ -1122,15 +1122,15 @@ views:
                       points_per_hour: 2
                       line_width: 2
                       color_thresholds:
-                        - value: 25
+                        - value: 0
                           color: "#f44336"
+                        - value: 25
+                          color: "#ffc107"
                         - value: 30
-                          color: "#ffc107"
-                        - value: 60
                           color: "#4caf50"
-                        - value: 70
+                        - value: 60
                           color: "#ffc107"
-                        - value: 100
+                        - value: 70
                           color: "#f44336"
                       gradient: true
                       show:
@@ -1184,11 +1184,11 @@ views:
                       points_per_hour: 2
                       line_width: 2
                       color_thresholds:
-                        - value: 250
+                        - value: 0
                           color: "#4caf50"
-                        - value: 2000
+                        - value: 250
                           color: "#ffc107"
-                        - value: 9999
+                        - value: 2000
                           color: "#f44336"
                       gradient: true
                       show:
@@ -1251,13 +1251,13 @@ views:
                       points_per_hour: 2
                       line_width: 2
                       color_thresholds:
-                        - value: 66
+                        - value: 0
                           color: "#2196f3"
-                        - value: 74
+                        - value: 66
                           color: "#4caf50"
-                        - value: 80
+                        - value: 74
                           color: "#ffc107"
-                        - value: 100
+                        - value: 80
                           color: "#f44336"
                       gradient: true
                       show:
@@ -1315,15 +1315,15 @@ views:
                       points_per_hour: 2
                       line_width: 2
                       color_thresholds:
-                        - value: 25
+                        - value: 0
                           color: "#f44336"
+                        - value: 25
+                          color: "#ffc107"
                         - value: 30
-                          color: "#ffc107"
-                        - value: 60
                           color: "#4caf50"
-                        - value: 70
+                        - value: 60
                           color: "#ffc107"
-                        - value: 100
+                        - value: 70
                           color: "#f44336"
                       gradient: true
                       show:
@@ -1377,11 +1377,11 @@ views:
                       points_per_hour: 2
                       line_width: 2
                       color_thresholds:
-                        - value: 250
+                        - value: 0
                           color: "#4caf50"
-                        - value: 2000
+                        - value: 250
                           color: "#ffc107"
-                        - value: 9999
+                        - value: 2000
                           color: "#f44336"
                       gradient: true
                       show:
@@ -1444,13 +1444,13 @@ views:
                       points_per_hour: 2
                       line_width: 2
                       color_thresholds:
-                        - value: 66
+                        - value: 0
                           color: "#2196f3"
-                        - value: 74
+                        - value: 66
                           color: "#4caf50"
-                        - value: 80
+                        - value: 74
                           color: "#ffc107"
-                        - value: 100
+                        - value: 80
                           color: "#f44336"
                       gradient: true
                       show:
@@ -1508,15 +1508,15 @@ views:
                       points_per_hour: 2
                       line_width: 2
                       color_thresholds:
-                        - value: 25
+                        - value: 0
                           color: "#f44336"
+                        - value: 25
+                          color: "#ffc107"
                         - value: 30
-                          color: "#ffc107"
-                        - value: 60
                           color: "#4caf50"
-                        - value: 70
+                        - value: 60
                           color: "#ffc107"
-                        - value: 100
+                        - value: 70
                           color: "#f44336"
                       gradient: true
                       show:
@@ -1570,11 +1570,11 @@ views:
                       points_per_hour: 2
                       line_width: 2
                       color_thresholds:
-                        - value: 250
+                        - value: 0
                           color: "#4caf50"
-                        - value: 2000
+                        - value: 250
                           color: "#ffc107"
-                        - value: 9999
+                        - value: 2000
                           color: "#f44336"
                       gradient: true
                       show:
@@ -1588,3 +1588,15 @@ views:
                           ha-card {
                             border: none;
                           }
+
+#  - title: Living Room
+#    path: living-room
+#    type: sidebar
+#    cards:
+#      - type: custom:auto-entities
+#        card:
+#          type: entities
+#          title: Living Room Devices
+#        filter:
+#          include:
+#            - area: living_room_new
